@@ -32,12 +32,7 @@ body {
   line-height: 1.7;
 }
 
-/* Centrage des titres et paragraphes */
-h1, p {
-  text-align: center;
-}
-
-/* ================= RETOUR ================= */
+h1, p { text-align: center; }
 
 a.back {
   display: inline-flex;
@@ -51,21 +46,15 @@ a.back {
 a.back::before { content: "← "; }
 a.back:hover { text-decoration: underline; }
 
-/* ================= TITRES ================= */
-
-h1 {
-  margin-top: 25px;
-  font-size: 2.6rem;
-}
+h1 { margin-top: 25px; font-size: 2.6rem; }
 
 h2 {
   margin-top: 50px;
   margin-bottom: 20px;
   font-size: 1.8rem;
-  text-align: center; /* ← centrage du titre */
+  text-align: center;
 }
 
-/* ================= IMAGE PRINCIPALE ================= */
 .main-image {
   display: block;
   max-width: 90%;
@@ -75,7 +64,6 @@ h2 {
   box-shadow: 0 8px 30px rgba(0,0,0,.6);
 }
 
-/* ================= CONTENEUR CARTES ================= */
 .sae-container {
   display: flex;
   flex-wrap: wrap;
@@ -84,7 +72,6 @@ h2 {
   margin-bottom: 50px;
 }
 
-/* ================= CARTES ================= */
 .sae-card {
   position: relative;
   background: rgba(10,16,34,0.75);
@@ -125,39 +112,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.sae-card ul {
-  padding-left: 20px;
-}
-
-.sae-card li {
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.sae-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.6);
-  margin-top: 10px;
-}
-
-/* ================= OUTILS ================= */
-.tools {
-  background: rgba(10,16,34,0.6);
-  padding: 20px;
-  border-radius: 14px;
-  font-weight: 600;
-  color: var(--neon);
-  text-align: left;
-
-  width: fit-content; /* largeur du contenu */
-  max-width: 900px;
-  margin-left: 0;     /* aligne à gauche */
-  margin-bottom: 50px;
-}
-
-/* ================= FOOTER ================= */
 footer {
   font-size: .9rem;
   color: var(--muted);
@@ -165,73 +119,60 @@ footer {
   margin-top: 60px;
 }
 
-/* ================= RESPONSIVE ================= */
 @media(max-width: 900px) {
-  h1 {
-    font-size: 2.1rem;
-  }
-  .sae-card {
-    max-width: 90%;
-  }
-  .tools {
-    width: 100%; /* reste à gauche sur mobile */
-  }
+  h1 { font-size: 2.1rem; }
+  .sae-card { max-width: 90%; }
 }
 </style>
 </head>
 
 <body>
 
-<a href="Portfolio.html" class="back"> Retour à l'accueil</a>
+<!-- IMPORTANT : si Portfolio.html est dans le même dossier que cette page -->
+<a href="Portfolio.html" class="back">Retour à l'accueil</a>
 
 <h1>Administrer</h1>
 <p>Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
 
-<!-- IMAGE PRINCIPALE -->
+<!-- OPTION 1 : si ton fichier s'appelle EXACTEMENT "AC semestre5.png" -->
 <img src="AC semestre5.png" alt="AC à valider" class="main-image">
+
+<!-- OPTION 2 (recommandée) : renomme l'image en AC_semestre5.png et décommente ci-dessous -->
+<!-- <img src="AC_semestre5.png" alt="AC à valider" class="main-image"> -->
 
 <section>
   <h2>Ressources réalisées</h2>
 
   <div class="sae-container">
-    <!-- CARTE 1 -->
     <div class="sae-card" onclick="window.location.href='AC31.01.html'">
       <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
       <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
     </div>
 
-    <!-- CARTE 2 -->
     <div class="sae-card" onclick="window.location.href='AC31.02.html'">
       <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
       <p>R3.cyber.16 : Découvrir le Pentesting</p>
     </div>
 
-    <!-- Ajoute d'autres cartes ici -->
-    <!-- CARTE 3 -->
     <div class="sae-card" onclick="window.location.href='AC31.03.html'">
-      <strong>AC31.03 — Réalisé une maquette de démonstration du projet</strong>
+      <strong>AC31.03 — Réaliser une maquette de démonstration du projet</strong>
       <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
     </div>
 
-    <!-- CARTE 4 -->
     <div class="sae-card" onclick="window.location.href='AC31.04.html'">
       <strong>AC31.04 — Défendre/Argumenter un projet</strong>
-      <p>R5.06 - Expression-Culture-Communication professionelles : S'intégrer dans une organisation </p>
+      <p>R5.06 - Expression-Culture-Communication professionnelles : S'intégrer dans une organisation</p>
     </div>
 
-    <!-- CARTE 4 -->
     <div class="sae-card" onclick="window.location.href='AC31.05.html'">
-      <strong>AC31.05 — Communiquer avec les acteurs du projets</strong>
+      <strong>AC31.05 — Communiquer avec les acteurs du projet</strong>
       <p>R5.07 - Projet Personnel et Professionnel</p>
     </div>
 
-    <!-- CARTE 5 -->
     <div class="sae-card" onclick="window.location.href='AC31.06.html'">
       <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
       <p>SAÉ 3.02 - Développer des applications communicantes</p>
     </div>
-
-
   </div>
 </section>
 
