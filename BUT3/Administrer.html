@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administrer — Compétence BUT R&T</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+/* Centrage des titres et paragraphes */
+h1, p {
+  text-align: center;
+}
+
+/* ================= RETOUR ================= */
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+/* ================= TITRES ================= */
+
+h1 {
+  margin-top: 25px;
+  font-size: 2.6rem;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  text-align: center; /* ← centrage du titre */
+}
+
+/* ================= IMAGE PRINCIPALE ================= */
+.main-image {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  margin: 30px auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+/* ================= CONTENEUR CARTES ================= */
+.sae-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+/* ================= CARTES ================= */
+.sae-card {
+  position: relative;
+  background: rgba(10,16,34,0.75);
+  padding: 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  max-width: 350px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  text-align: left;
+}
+
+.sae-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .5;
+}
+
+.sae-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,.6);
+}
+
+.sae-card strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sae-card ul {
+  padding-left: 20px;
+}
+
+.sae-card li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.sae-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.6);
+  margin-top: 10px;
+}
+
+/* ================= OUTILS ================= */
+.tools {
+  background: rgba(10,16,34,0.6);
+  padding: 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  color: var(--neon);
+  text-align: left;
+
+  width: fit-content; /* largeur du contenu */
+  max-width: 900px;
+  margin-left: 0;     /* aligne à gauche */
+  margin-bottom: 50px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  font-size: .9rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 900px) {
+  h1 {
+    font-size: 2.1rem;
+  }
+  .sae-card {
+    max-width: 90%;
+  }
+  .tools {
+    width: 100%; /* reste à gauche sur mobile */
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="Portfolio.html" class="back"> Retour à l'accueil</a>
+
+<h1>Administrer</h1>
+<p>Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
+
+<!-- IMAGE PRINCIPALE -->
+<img src="AC semestre5.png" alt="AC à valider" class="main-image">
+
+<section>
+  <h2>Ressources réalisées</h2>
+
+  <div class="sae-container">
+    <!-- CARTE 1 -->
+    <div class="sae-card" onclick="window.location.href='AC31.01.html'">
+      <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
+      <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
+    </div>
+
+    <!-- CARTE 2 -->
+    <div class="sae-card" onclick="window.location.href='AC31.02.html'">
+      <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
+      <p>R3.cyber.16 : Découvrir le Pentesting</p>
+    </div>
+
+    <!-- Ajoute d'autres cartes ici -->
+    <!-- CARTE 3 -->
+    <div class="sae-card" onclick="window.location.href='AC31.03.html'">
+      <strong>AC31.03 — Réalisé une maquette de démonstration du projet</strong>
+      <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
+    </div>
+
+    <!-- CARTE 4 -->
+    <div class="sae-card" onclick="window.location.href='AC31.04.html'">
+      <strong>AC31.04 — Défendre/Argumenter un projet</strong>
+      <p>R5.06 - Expression-Culture-Communication professionelles : S'intégrer dans une organisation </p>
+    </div>
+
+    <!-- CARTE 4 -->
+    <div class="sae-card" onclick="window.location.href='AC31.05.html'">
+      <strong>AC31.05 — Communiquer avec les acteurs du projets</strong>
+      <p>R5.07 - Projet Personnel et Professionnel</p>
+    </div>
+
+    <!-- CARTE 5 -->
+    <div class="sae-card" onclick="window.location.href='AC31.06.html'">
+      <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
+      <p>SAÉ 3.02 - Développer des applications communicantes</p>
+    </div>
+
+
+  </div>
+</section>
+
+<footer>
+© 2025 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>

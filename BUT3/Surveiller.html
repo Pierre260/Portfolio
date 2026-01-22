@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sécuriser — Compétence BUT R&T</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg:#0b1020;
+  --card:#121a33;
+  --accent:#38bdf8;
+  --accent2:#22d3ee;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background:
+    linear-gradient(120deg, rgba(56,189,248,.12), transparent 40%),
+    linear-gradient(240deg, rgba(34,211,238,.12), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  padding: 32px;
+  line-height: 1.75;
+}
+
+/* ===== Retour ===== */
+.back {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.back::before { content: "← "; }
+.back:hover { text-decoration: underline; }
+
+/* ===== Titres ===== */
+h1 {
+  font-size: 2.7rem;
+  margin: 25px 0 10px;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+h2 {
+  margin-top: 60px;
+  font-size: 1.9rem;
+  color: var(--accent);
+}
+
+p {
+  color: var(--muted);
+  max-width: 900px;
+}
+
+/* ===== Cartes SAE ===== */
+.sae-card {
+  background: linear-gradient(180deg, #151c3a, #0f1530);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 35px;
+  border: 1px solid rgba(255,255,255,.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.sae-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+
+.sae-card strong {
+  font-size: 1.15rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.sae-card ul {
+  padding-left: 22px;
+}
+.sae-card li {
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+.sae-card img {
+  display: block;
+  max-width: 100%;
+  margin-top: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+/* ===== Outils ===== */
+.tools {
+  background: rgba(56,189,248,.12);
+  padding: 18px 24px;
+  border-radius: 14px;
+  display: inline-block;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 70px;
+  font-size: .9rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  h1 { font-size: 2.2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="Portfolio.html" class="back">Retour à l'accueil</a>
+
+<h1>Sécuriser</h1>
+<p>
+  Mettre en œuvre un système d’information sécurisé pour une petite structure.
+</p>
+
+<section>
+  <h2>SAE réalisées</h2>
+
+  <div class="sae-card">
+    <strong>SAE 501 — Sécurisation d’un réseau et d’un service</strong>
+    <p>
+      Mise en place de mesures de sécurité réseau et système, gestion des accès,
+      pare-feu, VPN et bonnes pratiques de protection des données.
+    </p>
+
+    <ul>
+      <li>Analyse et configuration des politiques de sécurité</li>
+      <li>Gestion des comptes et permissions</li>
+      <li>Déploiement de VPN et firewalls</li>
+      <li>Surveillance des accès et logs</li>
+      <li>Tests de vulnérabilité et validation</li>
+    </ul>
+
+    <strong>AC à valider — SAE 501</strong>
+    <img src="AC S501.png" alt="AC SAE 501">
+  </div>
+
+  <div class="sae-card">
+    <strong>SAE Portfolio — Construction et valorisation du parcours professionnel</strong>
+    <p>
+      Structuration et présentation claire des compétences en sécurité et protection
+      des systèmes d’information.
+    </p>
+
+    <strong>AC à valider — SAE Portfolio</strong>
+    <img src="AC S501.png" alt="AC SAE Portfolio">
+  </div>
+</section>
+
+<section>
+  <h2>Outils utilisés</h2>
+  <div class="tools">
+    Linux • Firewall • VPN • VS Code
+  </div>
+</section>
+
+<footer>
+© 2025 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>

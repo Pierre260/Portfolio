@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programmer — Compétence BUT R&T</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+/* ===== Retour ===== */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+
+/* ===== Titres ===== */
+h1 {
+  margin-top: 25px;
+  font-size: 2.6rem;
+}
+h2 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+p {
+  color: var(--muted);
+  max-width: 900px;
+}
+
+/* ===== Cartes SAE ===== */
+.sae-card {
+  position: relative;
+  background: rgba(10,16,34,0.75);
+  padding: 28px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.sae-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .5;
+}
+
+.sae-card strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sae-card ul {
+  padding-left: 20px;
+}
+.sae-card li {
+  margin-bottom: 8px;
+}
+
+.sae-card img {
+  max-width: 100%;
+  margin-top: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.6);
+}
+
+/* ===== Outils ===== */
+.tools {
+  background: rgba(10,16,34,0.6);
+  padding: 20px;
+  border-radius: 14px;
+  display: inline-block;
+  font-weight: 600;
+  color: var(--neon);
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 60px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:900px) {
+  h1 { font-size: 2.1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="Portfolio.html" class="back">← Retour à l'accueil</a>
+
+<h1>Programmer</h1>
+<p>
+  Développer et automatiser des outils et scripts pour améliorer la gestion
+  des réseaux et des services.
+</p>
+
+<section>
+  <h2>SAE réalisées</h2>
+
+  <div class="sae-card">
+    <strong>SAE 501 — Concevoir, réaliser et présenter une solution technique</strong>
+    <p>
+      Développement et automatisation d’outils nécessaires au déploiement
+      d’une infrastructure virtualisée accessible à distance.
+    </p>
+
+    <ul>
+      <li>Automatisation de tâches système sous Linux</li>
+      <li>Scripts Bash pour la gestion des services</li>
+      <li>Configuration et personnalisation de solutions web</li>
+      <li>Tests fonctionnels et validation des scripts</li>
+      <li>Documentation technique</li>
+    </ul>
+
+    <strong>AC à valider — SAE 501</strong>
+    <img src="AC SAE501.png" alt="AC SAE 501">
+  </div>
+
+  <div class="sae-card">
+    <strong>SAE Portfolio — Construction et valorisation du parcours professionnel</strong>
+    <p>
+      Conception d’un portfolio web dynamique permettant de valoriser les projets,
+      compétences et réalisations en programmation durant le BUT R&T.
+    </p>
+
+    <strong>AC à valider — SAE Portfolio</strong>
+    <img src="AC SAE501.png" alt="AC SAE Portfolio">
+  </div>
+</section>
+
+<section>
+  <h2>Outils utilisés</h2>
+  <div class="tools">
+    Proxmox • Linux • Bash • VS Code
+  </div>
+</section>
+
+<footer>
+© 2025 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>

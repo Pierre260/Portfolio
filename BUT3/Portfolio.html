@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compétences — BUT R&T 3ème année</title>
+
+<style>
+/* ================= STYLE NOUVEAU ================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1: #05080f;
+  --bg2: #0a1022;
+  --neon: #00f5d4;
+  --neon2: #4cc9f0;
+  --purple: #7209b7;
+  --text: #eaeef6;
+  --muted: #8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ================= TITRES ================= */
+
+h1 {
+  margin-top: 90px;
+  font-size: 2.6rem;
+  letter-spacing: -1px;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* ================= BOUTON CV ================= */
+
+.cv-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 40px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0,245,212,.5);
+  transition: .3s;
+}
+
+.cv-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0,245,212,.8);
+}
+
+.cnt-btn {
+  position: fixed;
+  top: 20px;
+  right: 120px;
+  padding: 40px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0,245,212,.5);
+  transition: .3s;
+}
+
+.cnt-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0,245,212,.8);
+}
+
+/* ================= LIEN AC ================= */
+
+.ac-link {
+  margin: 30px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  color: var(--neon);
+}
+
+.ac-link span:last-child {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--neon);
+  color: #031014;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= CARTES ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(2, 260px);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.card {
+  position: relative;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: rgba(10, 16, 34, 0.75);
+  text-decoration: none;
+  color: inherit;
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  transition: .35s;
+}
+
+/* bordure néon animée */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2)); 
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  transition: .35s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+}
+
+/* ================= ICÔNES ================= */
+
+.dot {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+/* ================= TEXTES CARTES ================= */
+
+.card strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.card small {
+  color: var(--muted);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="CV.html" class="cv-btn">CV</a>
+
+<a href="contact.html" class="cnt-btn">Contact </a> 
+
+
+<h1>Compétences — BUT R&T 3ème année</h1>
+<p style="max-width:600px;margin-top:15px;">
+  Choisissez une compétence pour découvrir mes SAE, outils et projets réalisés.
+</p>
+
+<a href="Tableau à valider.png" target="_blank" class="ac-link">
+  <span>Voir les AC à valider</span>
+  <span>🔍</span>
+</a>
+
+<div class="grid">
+  <a href="administrer.html" class="card">
+    <div class="dot">A</div>
+    <strong>Administrer</strong>
+    <small>Concevoir et gérer un réseau</small>
+  </a>
+
+  <a href="connecter.html" class="card">
+    <div class="dot">C</div>
+    <strong>Connecter</strong>
+    <small>Solutions de communication IP</small>
+  </a>
+
+  <a href="programmer.html" class="card">
+    <div class="dot">P</div>
+    <strong>Programmer</strong>
+    <small>Applications R&T</small>
+  </a>
+</div>
+
+<div class="bottom-row">
+  <a href="sécuriser.html" class="card">
+    <div class="dot">S</div>
+    <strong>Sécuriser</strong>
+    <small>Systèmes sécurisés</small>
+  </a>
+
+  <a href="surveiller.html" class="card">
+    <div class="dot">Surv</div>
+    <strong>Surveiller</strong>
+    <small>Incidents de sécurité</small>
+  </a>
+</div>
+
+<footer>© 2025 — Portfolio BUT R&T — Pierre Poiré</footer>
+
+</body>
+</html>
