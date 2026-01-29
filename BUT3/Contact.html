@@ -10,8 +10,8 @@
 :root {
   --bg1:#0a0f25;
   --bg2:#1b0f3b;
-  --accent:#7b5fff;      /* violet néon */
-  --accent2:#38bdf8;     /* bleu néon */
+  --accent:#7b5fff;
+  --accent2:#38bdf8;
   --text:#e6eef6;
   --muted:#a0a8c0;
 }
@@ -34,7 +34,6 @@ body {
   min-height: 100vh;
 }
 
-/* ===== Bouton Retour ===== */
 a.back {
   color: var(--accent);
   text-decoration: none;
@@ -48,7 +47,6 @@ a.back {
 a.back::before { content: "← "; }
 a.back:hover { text-decoration: underline; }
 
-/* ===== Titres ===== */
 h1 {
   font-size: 2.7rem;
   margin: 10px 0 15px;
@@ -71,7 +69,6 @@ p {
   line-height: 1.6;
 }
 
-/* ===== Formulaire ===== */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -132,7 +129,6 @@ p {
   transform: translateY(-2px);
 }
 
-/* ===== Footer ===== */
 footer {
   margin-top: 50px;
   font-size: .9rem;
@@ -155,7 +151,9 @@ footer {
 <h1>Contactez-moi</h1>
 <p>Pour toute question, envoyez-moi un message :</p>
 
-<form action="send_contact.php" method="POST" class="contact-form">
+<form action="https://formspree.io/f/mkobrbjo" method="POST" class="contact-form">
+  <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+
   <label for="name">Nom</label>
   <input type="text" name="name" id="name" required placeholder="Votre nom">
 
