@@ -30,27 +30,38 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 0 16px; /* RESPONSIVE */
 }
-h1 { margin-top: 90px; font-size: 2.6rem; letter-spacing: -1px; }
+
+h1 { 
+  margin-top: 110px; 
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem); 
+  letter-spacing: -1px; 
+}
 p { color: var(--muted); }
+
+/* Boutons CV / Contact */
 .cv-btn, .cnt-btn {
   position: fixed;
-  top: 20px;
-  padding: 40px 16px;
+  top: 16px;
+  padding: 12px 14px;           /* corrigé */
   border-radius: 999px;
   background: linear-gradient(135deg, var(--neon), var(--neon2));
   color: #031014;
   font-weight: 700;
+  font-size: 0.95rem;
   text-decoration: none;
   box-shadow: 0 0 20px rgba(0,245,212,.5);
   transition: .3s;
 }
 .cv-btn { right: 20px; }
-.cnt-btn { right: 120px; }
+.cnt-btn { right: 110px; }
+
 .cv-btn:hover, .cnt-btn:hover {
   transform: scale(1.08);
   box-shadow: 0 0 35px rgba(0,245,212,.8);
 }
+
 .ac-link {
   margin: 30px 0;
   display: inline-flex;
@@ -69,19 +80,26 @@ p { color: var(--muted); }
   align-items: center;
   justify-content: center;
 }
+
+/* Grilles */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
   max-width: 900px;
+  width: 100%;
   padding: 20px;
 }
+
 .bottom-row {
   display: grid;
-  grid-template-columns: repeat(2, 260px);
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* corrigé */
   gap: 28px;
+  max-width: 900px;
+  width: 100%;
   margin-bottom: 60px;
 }
+
 .card {
   position: relative;
   padding: 28px 20px;
@@ -93,6 +111,7 @@ p { color: var(--muted); }
   overflow: hidden;
   transition: .35s;
 }
+
 .card::before {
   content: "";
   position: absolute;
@@ -108,8 +127,10 @@ p { color: var(--muted); }
   opacity: .4;
   transition: .35s;
 }
+
 .card:hover::before { opacity: 1; }
 .card:hover { transform: translateY(-12px) scale(1.03); }
+
 .dot {
   width: 52px;
   height: 52px;
@@ -123,13 +144,23 @@ p { color: var(--muted); }
   justify-content: center;
   font-size: 1.1rem;
 }
+
 .card strong { display: block; font-size: 1.25rem; margin-bottom: 6px; }
 .card small { color: var(--muted); }
+
 footer { font-size: .9rem; color: var(--muted); margin-bottom: 30px; }
-@media(max-width: 900px) {
-  .grid { grid-template-columns: 1fr; }
-  .bottom-row { grid-template-columns: 1fr; }
-  h1 { font-size: 2.1rem; }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .grid, .bottom-row { grid-template-columns: 1fr; }
+  .cv-btn { right: 16px; }
+  .cnt-btn { right: 92px; }
 }
 </style>
 </head>
