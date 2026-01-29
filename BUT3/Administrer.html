@@ -28,8 +28,16 @@ body {
     radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
     radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
-  padding: 30px;
   line-height: 1.7;
+
+  /* important : padding responsive + centrage */
+  padding: clamp(16px, 3vw, 34px);
+}
+
+/* Conteneur central pour éviter l'effet "tout petit au milieu" */
+.wrap{
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 h1, p { text-align: center; }
@@ -46,44 +54,54 @@ a.back {
 a.back::before { content: "← "; }
 a.back:hover { text-decoration: underline; }
 
-h1 { margin-top: 25px; font-size: 2.6rem; }
+h1 {
+  margin-top: 10px;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  letter-spacing: -1px;
+}
+
+p.desc{
+  color: var(--muted);
+  max-width: 760px;
+  margin: 12px auto 0;
+  font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+}
 
 h2 {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
+  margin-top: 44px;
+  margin-bottom: 18px;
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
   text-align: center;
 }
 
 .main-image {
   display: block;
-  max-width: 90%;
+  width: min(920px, 100%);
   height: auto;
   border-radius: 12px;
-  margin: 30px auto;
+  margin: 26px auto;
   box-shadow: 0 8px 30px rgba(0,0,0,.6);
 }
 
+/* --- Grille responsive des cartes (au lieu de flex + max-width 350) --- */
 .sae-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin: 22px 0 40px;
 }
 
 .sae-card {
   position: relative;
   background: rgba(10,16,34,0.75);
-  padding: 20px;
+  padding: 22px;
   border-radius: 18px;
   backdrop-filter: blur(14px);
   overflow: hidden;
-  max-width: 350px;
-  width: 100%;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
+  min-height: 140px; /* donne un "volume" visuel */
 }
 
 .sae-card::before {
@@ -102,12 +120,12 @@ h2 {
 }
 
 .sae-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow: 0 15px 40px rgba(0,0,0,.6);
 }
 
 .sae-card strong {
-  font-size: 1.1rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   display: block;
   margin-bottom: 10px;
 }
@@ -116,75 +134,80 @@ h2 {
   color: var(--muted);
   margin: 0;
   text-align: left;
+  font-size: 0.98rem;
 }
-  
+
 footer {
   font-size: .9rem;
   color: var(--muted);
   text-align: center;
-  margin-top: 60px;
+  margin-top: 48px;
+  margin-bottom: 18px;
 }
 
-@media(max-width: 900px) {
-  h1 { font-size: 2.1rem; }
-  .sae-card { max-width: 90%; }
+/* Responsive */
+@media (max-width: 1024px){
+  .sae-container{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px){
+  .sae-container{
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
+<div class="wrap">
 
-<!-- IMPORTANT : si Portfolio.html est dans le même dossier que cette page -->
-<a href="Portfolio.html" class="back">Retour à l'accueil</a>
+  <a href="Portfolio.html" class="back">Retour à l'accueil</a>
 
-<h1>Administrer</h1>
-<p>Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
+  <h1>Administrer</h1>
+  <p class="desc">Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
 
-<!-- OPTION 1 : si ton fichier s'appelle EXACTEMENT "AC semestre5.png" -->
-<img src="AC semestre5.png" alt="AC à valider" class="main-image">
+  <img src="AC semestre5.png" alt="AC à valider" class="main-image">
 
-<!-- OPTION 2 (recommandée) : renomme l'image en AC_semestre5.png et décommente ci-dessous -->
-<!-- <img src="AC_semestre5.png" alt="AC à valider" class="main-image"> -->
+  <section>
+    <h2>Ressources réalisées</h2>
 
-<section>
-  <h2>Ressources réalisées</h2>
+    <div class="sae-container">
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.01.html'">
+        <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
+        <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
+      </div>
 
-  <div class="sae-container">
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.01.html'">
-      <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
-      <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.02.html'">
+        <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
+        <p>R3.cyber.16 : Découvrir le Pentesting</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.03.html'">
+        <strong>AC31.03 — Réaliser une maquette de démonstration du projet</strong>
+        <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.04.html'">
+        <strong>AC31.04 — Défendre/Argumenter un projet</strong>
+        <p>R5.06 - Expression-Culture-Communication professionnelles : S'intégrer dans une organisation</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.05.html'">
+        <strong>AC31.05 — Communiquer avec les acteurs du projet</strong>
+        <p>R5.07 - Projet Personnel et Professionnel</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.06.html'">
+        <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
+        <p>SAÉ 3.02 - Développer des applications communicantes</p>
+      </div>
     </div>
+  </section>
 
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.02.html'">
-      <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
-      <p>R3.cyber.16 : Découvrir le Pentesting</p>
-    </div>
+  <footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
 
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.03.html'">
-      <strong>AC31.03 — Réaliser une maquette de démonstration du projet</strong>
-      <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
-    </div>
-
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.04.html'">
-      <strong>AC31.04 — Défendre/Argumenter un projet</strong>
-      <p>R5.06 - Expression-Culture-Communication professionnelles : S'intégrer dans une organisation</p>
-    </div>
-
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.05.html'">
-      <strong>AC31.05 — Communiquer avec les acteurs du projet</strong>
-      <p>R5.07 - Projet Personnel et Professionnel</p>
-    </div>
-
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.06.html'">
-      <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
-      <p>SAÉ 3.02 - Développer des applications communicantes</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
-</footer>
-
+</div>
 </body>
 </html>
