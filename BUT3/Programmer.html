@@ -32,41 +32,58 @@ body {
   line-height: 1.7;
 }
 
-/* ===== Retour ===== */
-.back {
+h1, p { text-align: center; }
+
+a.back {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--neon);
   font-weight: 600;
   text-decoration: none;
+  margin-bottom: 30px;
 }
-.back:hover { text-decoration: underline; }
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
 
-/* ===== Titres ===== */
-h1 {
-  margin-top: 25px;
-  font-size: 2.6rem;
-}
+h1 { margin-top: 25px; font-size: 2.6rem; }
+
 h2 {
   margin-top: 50px;
   margin-bottom: 20px;
   font-size: 1.8rem;
-}
-p {
-  color: var(--muted);
-  max-width: 900px;
+  text-align: center;
 }
 
-/* ===== Cartes SAE ===== */
+.main-image {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  margin: 30px auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+.sae-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
 .sae-card {
   position: relative;
   background: rgba(10,16,34,0.75);
-  padding: 28px;
+  padding: 20px;
   border-radius: 18px;
-  margin-bottom: 30px;
   backdrop-filter: blur(14px);
   overflow: hidden;
+  max-width: 350px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
 }
 
 .sae-card::before {
@@ -84,98 +101,91 @@ p {
   opacity: .5;
 }
 
+.sae-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,.6);
+}
+
 .sae-card strong {
   font-size: 1.1rem;
   display: block;
   margin-bottom: 10px;
 }
 
-.sae-card ul {
-  padding-left: 20px;
-}
-.sae-card li {
-  margin-bottom: 8px;
+.sae-card p {
+  color: var(--muted);
+  margin: 0;
 }
 
-.sae-card img {
-  max-width: 100%;
-  margin-top: 20px;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.6);
+.tools-wrap {
+  display: flex;
+  justify-content: center;
 }
 
-/* ===== Outils ===== */
 .tools {
   background: rgba(10,16,34,0.6);
-  padding: 20px;
+  padding: 18px 22px;
   border-radius: 14px;
   display: inline-block;
   font-weight: 600;
   color: var(--neon);
+  text-align: center;
 }
 
-/* ===== Footer ===== */
 footer {
-  margin-top: 60px;
   font-size: .9rem;
   color: var(--muted);
+  text-align: center;
+  margin-top: 60px;
 }
 
-/* ===== Responsive ===== */
-@media(max-width:900px) {
+@media(max-width: 900px) {
   h1 { font-size: 2.1rem; }
+  .sae-card { max-width: 90%; }
 }
 </style>
 </head>
 
 <body>
 
-<a href="Portfolio.html" class="back">← Retour à l'accueil</a>
+<a href="Portfolio.html" class="back">Retour à l'accueil</a>
 
 <h1>Programmer</h1>
-<p>
-  Développer et automatiser des outils et scripts pour améliorer la gestion
-  des réseaux et des services.
-</p>
+<p>Développer et automatiser des outils et scripts pour améliorer la gestion des réseaux et des services.</p>
+
+<!-- Image principale AC -->
+<img src="AC SAE501.png" alt="AC à valider" class="main-image">
 
 <section>
-  <h2>SAE réalisées</h2>
+  <h2>Ressources réalisées</h2>
 
-  <div class="sae-card">
-    <strong>SAE 501 — Concevoir, réaliser et présenter une solution technique</strong>
-    <p>
-      Développement et automatisation d’outils nécessaires au déploiement
-      d’une infrastructure virtualisée accessible à distance.
-    </p>
+  <div class="sae-container">
 
-    <ul>
-      <li>Automatisation de tâches système sous Linux</li>
-      <li>Scripts Bash pour la gestion des services</li>
-      <li>Configuration et personnalisation de solutions web</li>
-      <li>Tests fonctionnels et validation des scripts</li>
-      <li>Documentation technique</li>
-    </ul>
+    <div class="sae-card" onclick="window.location.href='AC_Programmer/SAE501.html'">
+      <strong>SAE 5.01 — Concevoir, réaliser et présenter une solution technique</strong>
+      <p>Automatisation, scripts Bash, outils système et déploiement d’une infrastructure virtualisée.</p>
+    </div>
 
-    <strong>AC à valider — SAE 501</strong>
-    <img src="AC SAE501.png" alt="AC SAE 501">
-  </div>
+    <div class="sae-card" onclick="window.location.href='AC_Programmer/Portfolio.html'">
+      <strong>SAE Portfolio — Construction et valorisation du parcours professionnel</strong>
+      <p>Développement du portfolio web pour valoriser les projets et compétences en programmation.</p>
+    </div>
 
-  <div class="sae-card">
-    <strong>SAE Portfolio — Construction et valorisation du parcours professionnel</strong>
-    <p>
-      Conception d’un portfolio web dynamique permettant de valoriser les projets,
-      compétences et réalisations en programmation durant le BUT R&T.
-    </p>
+    <!-- Tu peux ajouter d'autres AC ici -->
+    <!--
+    <div class="sae-card" onclick="window.location.href='AC_Programmer/ACxx.xx.html'">
+      <strong>ACxx.xx — Titre</strong>
+      <p>Description courte</p>
+    </div>
+    -->
 
-    <strong>AC à valider — SAE Portfolio</strong>
-    <img src="AC SAE501.png" alt="AC SAE Portfolio">
   </div>
 </section>
 
 <section>
   <h2>Outils utilisés</h2>
-  <div class="tools">
-    Proxmox • Linux • Bash • VS Code
+  <div class="tools-wrap">
+    <div class="tools">Proxmox • Linux • Bash • VS Code</div>
   </div>
 </section>
 
