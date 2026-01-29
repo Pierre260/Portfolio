@@ -32,31 +32,31 @@ body{
     linear-gradient(180deg, var(--bg1), var(--bg2));
   line-height:1.7;
 
-  /* Pleine hauteur + layout propre */
   min-height:100vh;
   display:flex;
   flex-direction:column;
 }
 
-/* Page prend toute la hauteur dispo (évite le gros vide) */
 .page{
   flex:1;
   display:flex;
   flex-direction:column;
 }
 
-/* ✅ Container fluide universel */
+/* Container fluide */
 .container{
   width:100%;
   max-width:1200px;
   margin:0 auto;
   padding: clamp(16px, 3vw, 34px);
-  flex:1; /* permet au footer de se coller en bas si peu de contenu */
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
-h1, p{ text-align:center; }
-
+/* Bouton retour bien à gauche */
 a.back{
+  align-self:flex-start;
   display:inline-flex;
   align-items:center;
   gap:8px;
@@ -69,12 +69,14 @@ a.back::before{ content:"← "; }
 a.back:hover{ text-decoration:underline; }
 
 h1{
+  text-align:center;
   margin-top: 6px;
   font-size: clamp(1.9rem, 3.5vw, 2.8rem);
   letter-spacing:-1px;
 }
 
 p.desc{
+  text-align:center;
   color:var(--muted);
   max-width:760px;
   margin: 12px auto 0;
@@ -97,7 +99,7 @@ h2{
   box-shadow: 0 8px 30px rgba(0,0,0,.6);
 }
 
-/* ✅ Auto-grid “magique” : s’adapte automatiquement */
+/* Auto-grid magique */
 .sae-container{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -151,7 +153,7 @@ h2{
   font-size: clamp(0.95rem, 1.2vw, 1.02rem);
 }
 
-/* ✅ Footer collé en bas quand il n’y a pas assez de contenu */
+/* Footer toujours en bas */
 footer{
   margin-top:auto;
   padding: 16px 12px;
