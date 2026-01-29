@@ -29,24 +29,40 @@ body {
     radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
   line-height: 1.7;
+
+  /* padding responsive */
   padding: clamp(16px, 3vw, 34px);
+
+  /* évite le "vide" selon la hauteur */
+  min-height: 100vh;
 }
 
-/* Bouton retour FORCÉ à gauche */
-a.back {
+/* Conteneur central */
+.wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center; /* tout centré par défaut */
+}
+
+/* ✅ Bouton retour FORCÉ à gauche (même si le reste est centré) */
+a.back{
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--neon);
   font-weight: 600;
   text-decoration: none;
-  margin-bottom: 25px;
+
+  /* le trick qui marche à tous les coups */
+  width: fit-content;
+  margin-right: auto;   /* pousse à gauche */
+  margin-left: 0;
+
+  margin-bottom: 30px;
   text-align: left;
 }
 a.back::before { content: "← "; }
 a.back:hover { text-decoration: underline; }
-
-h1, p { text-align: center; }
 
 h1 {
   margin-top: 10px;
@@ -54,7 +70,7 @@ h1 {
   letter-spacing: -1px;
 }
 
-p.desc {
+p.desc{
   color: var(--muted);
   max-width: 760px;
   margin: 12px auto 0;
@@ -65,7 +81,6 @@ h2 {
   margin-top: 44px;
   margin-bottom: 18px;
   font-size: clamp(1.4rem, 2.3vw, 1.9rem);
-  text-align: center;
 }
 
 .main-image {
@@ -77,7 +92,7 @@ h2 {
   box-shadow: 0 8px 30px rgba(0,0,0,.6);
 }
 
-/* Grille AUTO responsive magique */
+/* ✅ Responsive automatique : 1/2/3/4 colonnes selon l'écran */
 .sae-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -136,58 +151,59 @@ footer {
   color: var(--muted);
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 18px;
 }
 </style>
 </head>
 
 <body>
+<div class="wrap">
 
-<a href="Portfolio.html" class="back">Retour à l'accueil</a>
+  <a href="Portfolio.html" class="back">Retour à l'accueil</a>
 
-<h1>Administrer</h1>
-<p class="desc">Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
+  <h1>Administrer</h1>
+  <p class="desc">Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
 
-<img src="AC semestre5.png" alt="AC à valider" class="main-image">
+  <img src="AC semestre5.png" alt="AC à valider" class="main-image">
 
-<section>
-  <h2>Ressources réalisées</h2>
+  <section>
+    <h2>Ressources réalisées</h2>
 
-  <div class="sae-container">
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.01.html'">
-      <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
-      <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
+    <div class="sae-container">
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.01.html'">
+        <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
+        <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.02.html'">
+        <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
+        <p>R3.cyber.16 : Découvrir le Pentesting</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.03.html'">
+        <strong>AC31.03 — Réaliser une maquette de démonstration du projet</strong>
+        <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.04.html'">
+        <strong>AC31.04 — Défendre/Argumenter un projet</strong>
+        <p>R5.06 - Expression-Culture-Communication professionnelles : S'intégrer dans une organisation</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.05.html'">
+        <strong>AC31.05 — Communiquer avec les acteurs du projet</strong>
+        <p>R5.07 - Projet Personnel et Professionnel</p>
+      </div>
+
+      <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.06.html'">
+        <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
+        <p>SAÉ 3.02 - Développer des applications communicantes</p>
+      </div>
     </div>
+  </section>
 
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.02.html'">
-      <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
-      <p>R3.cyber.16 : Découvrir le Pentesting</p>
-    </div>
+  <footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
 
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.03.html'">
-      <strong>AC31.03 — Réaliser une maquette de démonstration du projet</strong>
-      <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
-    </div>
-
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.04.html'">
-      <strong>AC31.04 — Défendre/Argumenter un projet</strong>
-      <p>R5.06 - Expression-Culture-Communication professionnelles : S'intégrer dans une organisation</p>
-    </div>
-
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.05.html'">
-      <strong>AC31.05 — Communiquer avec les acteurs du projet</strong>
-      <p>R5.07 - Projet Personnel et Professionnel</p>
-    </div>
-
-    <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.06.html'">
-      <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
-      <p>SAÉ 3.02 - Développer des applications communicantes</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
-</footer>
-
+</div>
 </body>
 </html>
