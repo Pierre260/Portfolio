@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R6.03 — Connaissance de l’entreprise</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+h1, h2 { text-align: center; }
+h1 { font-size: 2.6rem; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; margin-bottom: 20px; }
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #00f5d4 !important;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+}
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  pointer-events: none;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+
+@media(max-width: 900px) {
+  h1 { font-size: 2.1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BOUTON RETOUR -->
+<a href="../Administrer.html" class="back">Retour à la compétence Administrer</a>
+
+<h1>R6.03 - Connaissance de l’entreprise</h1>
+
+<!-- Contexte / objectif -->
+<div class="bloc">
+  <h2>🎯 Contexte & objectif du projet</h2>
+  <p>
+    Dans le cadre de la ressource <strong>R6.03 — Connaissance de l’entreprise</strong>,
+    l’objectif était de <strong>concevoir une solution innovante</strong> (non existante / jamais réalisée “telle quelle”)
+    et de la structurer comme un vrai projet d’entreprise, dans notre domaine <strong>Réseaux & Télécommunications</strong>.
+  </p>
+  <p>
+    Nous devions présenter l’idée, son intérêt, sa faisabilité, son organisation et les étapes de mise en œuvre,
+    en adoptant une approche “entreprise” : besoin client, proposition de valeur, organisation, coûts, risques,
+    communication et plan de déploiement.
+  </p>
+</div>
+
+<!-- Entreprise / concept -->
+<div class="bloc">
+  <h2>🏢 Concept d’entreprise & proposition de valeur</h2>
+  <ul>
+    <li><strong>Nom / thème :</strong> (à compléter)</li>
+    <li><strong>Problème ciblé :</strong> (ex : sécurisation, connectivité, supervision, déploiement, performance…)</li>
+    <li><strong>Solution innovante :</strong> (décrire en 2-3 lignes ce que fait la solution)</li>
+    <li><strong>Clients visés :</strong> (particuliers, PME, collectivités, opérateurs, sites industriels…)</li>
+    <li><strong>Bénéfices :</strong> (gain de temps, réduction des pannes, meilleur débit, coût réduit, sécurité…)</li>
+  </ul>
+</div>
+
+<!-- Analyse / organisation -->
+<div class="bloc">
+  <h2>🧩 Analyse & fonctionnement (détails)</h2>
+  <ul>
+    <li><strong>Besoins :</strong> quelles attentes / contraintes (budget, sécurité, SLA, RGPD, disponibilité…)</li>
+    <li><strong>Architecture :</strong> réseaux, équipements, services (LAN/WAN, Wi-Fi, fibre, VPN, routage…)</li>
+    <li><strong>Sécurité :</strong> segmentation, firewall, supervision, sauvegardes, accès (MFA, AAA…)</li>
+    <li><strong>Déploiement :</strong> étapes, planning, tests, validation, mise en production</li>
+    <li><strong>Risques :</strong> techniques / humains / coûts + solutions de mitigation</li>
+  </ul>
+</div>
+
+<!-- Diaporama Canva -->
+<div class="bloc">
+  <h2>🎞 Présentation du projet (Diaporama)</h2>
+  <p>
+    Le diaporama ci-dessous présente la solution innovante, la structure de l’entreprise,
+    et l’explication détaillée du projet (idée, organisation, mise en œuvre, conclusion).
+  </p>
+
+  <!-- ✅ Remplace le lien Canva ci-dessous par TON lien embed -->
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;
+     padding-bottom: 0; box-shadow: 0 2px 8px rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+     border-radius: 8px; will-change: transform;">
+    <iframe loading="lazy"
+      style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+      src="https://www.canva.com/design/TON_ID_CANVA/TON_TOKEN/view?embed"
+      allowfullscreen="allowfullscreen" allow="fullscreen">
+    </iframe>
+  </div>
+
+  <!-- ✅ Remplace aussi ce lien par TON lien de partage Canva -->
+  <a href="https://www.canva.com/design/TON_ID_CANVA/view?utm_content=TON_ID_CANVA&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+     target="_blank" rel="noopener">🔗 Ouvrir le diaporama complet</a>
+</div>
+
+<!-- Retour d’expérience -->
+<div class="bloc">
+  <h2>📝 Mon expérience personnelle</h2>
+  <ul>
+    <li>Ce projet m’a appris à <strong>raisonner comme une entreprise</strong> : besoin → solution → valeur.</li>
+    <li>J’ai amélioré ma capacité à <strong>structurer une idée</strong> (objectifs, planning, risques, budget).</li>
+    <li>J’ai appris à <strong>décrire une solution réseau</strong> de manière claire et détaillée.</li>
+    <li>J’ai travaillé la <strong>communication</strong> : présentation, choix techniques, argumentation.</li>
+  </ul>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
