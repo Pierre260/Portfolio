@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAE3.03 — Pépinière Multi-sites</title>
+</head>
+
+<body>
+
+<a href="../Connecter.html" class="back">Retour à la compétence Connecter</a>
+
+<h1>SAE3.03 : Infrastructure Multi-sites</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectif du projet</h2>
+  <p>
+    Ce projet consiste à concevoir et déployer une infrastructure réseau complète pour une entreprise
+    disposant d’un siège et d’une succursale. L’objectif est de garantir une communication sécurisée,
+    performante et évolutive entre plusieurs sites, tout en assurant la gestion des utilisateurs,
+    des services et des données.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛠 Activités réalisées</h2>
+  <ul>
+    <li>Conception de l’architecture réseau multi-sites (siège + succursale)</li>
+    <li>Mise en place d’un Active Directory (Windows Server)</li>
+    <li>Configuration des services : DNS, DHCP, serveur mail, proxy</li>
+    <li>Déploiement d’un serveur Web connecté à une base de données</li>
+    <li>Mise en place d’un serveur Syslog centralisé pour la supervision</li>
+    <li>Segmentation réseau (VLAN : ADMIN, PERSONNEL, PRODUCTION, VIDEO, WIFI)</li>
+    <li>Sécurisation des accès (SSH, filtrage proxy, isolation des réseaux)</li>
+    <li>Mise en place d’une réplication des données entre siège et succursale</li>
+    <li>Tests de connectivité et validation des flux réseau</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>🌐 Architecture mise en place</h2>
+  <p>
+    L’infrastructure repose sur une organisation en plusieurs réseaux logiques afin de garantir la sécurité et les performances :
+  </p>
+  <ul>
+    <li><strong>Réseau ADMIN :</strong> accès aux équipements réseau et serveurs</li>
+    <li><strong>Réseau PERSONNEL :</strong> communication entre les postes utilisateurs</li>
+    <li><strong>Réseau PRODUCTION :</strong> isolé pour les machines critiques</li>
+    <li><strong>Réseau VIDEO :</strong> priorisation du trafic multimédia (QoS)</li>
+    <li><strong>Réseaux WIFI :</strong> un sécurisé + un invité (accès web uniquement)</li>
+  </ul>
+  <p>
+    La succursale est reliée au siège, et tout le trafic Internet est centralisé et filtré via le proxy du siège.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>📄 Rapport technique</h2>
+  <!-- Remplace par ton Google Doc -->
+  <iframe
+    src="https://docs.google.com/document/d/18DaQVxHHnv0ggYayfrf-H5ZFy2GVfqAJaqdxyEzDXDc/edit?usp=sharing">
+  </iframe>
+
+  <!-- Option lien -->
+  <a href="https://docs.google.com/document/d/18DaQVxHHnv0ggYayfrf-H5ZFy2GVfqAJaqdxyEzDXDc/edit?usp=sharing" class="doc-link" target="_blank">
+    🔗 Ouvrir le rapport complet
+  </a>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon expérience personnelle</h2>
+  <p>
+    Ce projet m’a permis de me rapprocher des conditions réelles d’un administrateur réseaux.
+    J’ai travaillé sur une infrastructure complète, de la conception jusqu’à la mise en production.
+  </p>
+
+  <p>J’ai particulièrement développé :</p>
+  <ul>
+    <li>Ma capacité à concevoir une architecture réseau cohérente et sécurisée</li>
+    <li>Mes compétences en administration systèmes (Windows Server, Active Directory)</li>
+    <li>La configuration d’équipements réseau (switchs, routeurs, VLAN)</li>
+    <li>La mise en place de services réseau critiques</li>
+  </ul>
+
+  <p>Les principales difficultés rencontrées :</p>
+  <ul>
+    <li>La gestion de la complexité d’un réseau multi-sites</li>
+    <li>La configuration des interconnexions entre siège et succursale</li>
+    <li>La sécurisation des flux et la segmentation réseau</li>
+    <li>La gestion du temps lors de la mise en production en conditions réelles</li>
+  </ul>
+
+  <p>
+    Cette SAE m’a permis de consolider mes compétences techniques et de travailler en équipe
+    sur un projet d’envergure, proche des attentes du monde professionnel.
+  </p>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
