@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R5.01 — Wi-Fi Avancé (POC)</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+h1, h2 { text-align: center; }
+h1 { font-size: 2.6rem; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; margin-bottom: 20px; }
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.bloc:hover {
+  transform: translateY(-5px);
+}
+
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  pointer-events: none;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+  margin-top: 15px;
+}
+
+a.doc-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+a.doc-link:hover { text-decoration: underline; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="../Connecter.html" class="back">Retour à la compétence Connecter</a>
+
+<h1>R5.01 : Wi-Fi avancé — POC entreprise</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectif du projet</h2>
+  <p>
+    Réalisation d’un Proof of Concept (POC) Wi-Fi visant à répondre à un appel d’offre
+    pour le déploiement d’une infrastructure sans fil en entreprise.
+    L’objectif est de concevoir une solution fonctionnelle, sécurisée et adaptée
+    à des contraintes budgétaires tout en garantissant de bonnes performances radio.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛠 Activités réalisées</h2>
+  <ul>
+    <li>Conception de l’architecture Wi-Fi avec contrôleur centralisé</li>
+    <li>Configuration de plusieurs SSID (IoT, Invité, sécurisé)</li>
+    <li>Mise en place d’un portail captif local</li>
+    <li>Implémentation de la segmentation réseau (VLAN)</li>
+    <li>Sécurisation des accès Wi-Fi (WPA2, préparation 802.1X)</li>
+    <li>Optimisation des paramètres radio (canaux, puissance)</li>
+    <li>Tests de charge et validation des performances</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📡 Étude radio (Site Survey)</h2>
+  <p>
+    Une analyse de couverture Wi-Fi a été réalisée à l’aide de l’outil Ekahau et du Sidekick.
+    Cette étude a permis :
+  </p>
+  <ul>
+    <li>D’évaluer la qualité du signal et les zones de couverture</li>
+    <li>D’identifier les interférences et obstacles</li>
+    <li>D’optimiser le positionnement des points d’accès</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>🔐 Architecture & sécurité</h2>
+  <ul>
+    <li><strong>SSID IoT :</strong> authentification PSK</li>
+    <li><strong>SSID Invité :</strong> portail captif (accès Internet uniquement)</li>
+    <li><strong>SSID sécurisé :</strong> préparation WPA2-Entreprise (802.1X)</li>
+    <li>Isolation des flux entre les réseaux</li>
+    <li>Segmentation via VLAN</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📄 Rapport technique</h2>
+  <iframe src="TON_LIEN_GOOGLE_DOC_ICI/preview"></iframe>
+
+  <a href="TON_LIEN_GOOGLE_DOC_ICI" class="doc-link" target="_blank">
+    🔗 Ouvrir le rapport complet
+  </a>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon expérience</h2>
+  <p>
+    Ce projet m’a permis de travailler sur une problématique réelle de déploiement Wi-Fi en entreprise,
+    en prenant en compte des contraintes techniques et budgétaires.
+  </p>
+
+  <ul>
+    <li>Configuration avancée Wi-Fi</li>
+    <li>Gestion de la sécurité réseau</li>
+    <li>Optimisation radio</li>
+    <li>Utilisation d’outils professionnels (Ekahau)</li>
+  </ul>
+
+  <p>Difficultés :</p>
+  <ul>
+    <li>Gestion des interférences radio</li>
+    <li>Optimisation des performances en haute densité</li>
+    <li>Configuration du portail captif</li>
+  </ul>
+
+  <p>
+    Ce projet m’a permis de mieux comprendre les enjeux du Wi-Fi en environnement professionnel
+    et de me rapprocher des pratiques utilisées en entreprise.
+  </p>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
