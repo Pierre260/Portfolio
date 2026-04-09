@@ -5,13 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAE3.03 — Pépinière Multi-sites</title>
 
-<link rel="stylesheet" href="../style.css">
-  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+h1, h2 { text-align: center; }
+h1 { font-size: 2.6rem; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; margin-bottom: 20px; }
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: 0.3s ease; /* AJOUT */
+}
+
+.bloc:hover {
+  transform: translateY(-5px); /* AJOUT */
+}
+
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  pointer-events: none;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+  margin-top: 15px;
+  overscroll-behavior: contain;
+}
+
+a.doc-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+a.doc-link:hover { text-decoration: underline; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+
+@media(max-width: 900px) {
+  h1 { font-size: 2.1rem; }
+}
+</style>
 </head>
 
 <body>
 
-<a href="../Connecter.html" class="back">Retour à la compétence Connecter</a>
+<a href="../Administrer.html" class="back">Retour à la compétence Administrer</a>
 
 <h1>SAE3.03 : Infrastructure Multi-sites</h1>
 
@@ -20,83 +125,67 @@
   <p>
     Ce projet consiste à concevoir et déployer une infrastructure réseau complète pour une entreprise
     disposant d’un siège et d’une succursale. L’objectif est de garantir une communication sécurisée,
-    performante et évolutive entre plusieurs sites, tout en assurant la gestion des utilisateurs,
-    des services et des données.
+    performante et évolutive entre plusieurs sites.
   </p>
 </div>
 
 <div class="bloc">
   <h2>🛠 Activités réalisées</h2>
   <ul>
-    <li>Conception de l’architecture réseau multi-sites (siège + succursale)</li>
-    <li>Mise en place d’un Active Directory (Windows Server)</li>
-    <li>Configuration des services : DNS, DHCP, serveur mail, proxy</li>
-    <li>Déploiement d’un serveur Web connecté à une base de données</li>
-    <li>Mise en place d’un serveur Syslog centralisé pour la supervision</li>
-    <li>Segmentation réseau (VLAN : ADMIN, PERSONNEL, PRODUCTION, VIDEO, WIFI)</li>
-    <li>Sécurisation des accès (SSH, filtrage proxy, isolation des réseaux)</li>
-    <li>Mise en place d’une réplication des données entre siège et succursale</li>
-    <li>Tests de connectivité et validation des flux réseau</li>
+    <li>Conception de l’architecture réseau multi-sites</li>
+    <li>Mise en place d’un Active Directory</li>
+    <li>Configuration des services DNS, mail, proxy</li>
+    <li>Déploiement d’un serveur Web et base de données</li>
+    <li>Mise en place d’un serveur Syslog</li>
+    <li>Segmentation réseau (VLAN)</li>
+    <li>Sécurisation des accès (SSH, filtrage)</li>
+    <li>Réplication des données entre sites</li>
+    <li>Tests et validation des flux réseau</li>
   </ul>
 </div>
 
 <div class="bloc">
-  <h2>🌐 Architecture mise en place</h2>
-  <p>
-    L’infrastructure repose sur une organisation en plusieurs réseaux logiques afin de garantir la sécurité et les performances :
-  </p>
+  <h2>🌐 Architecture</h2>
   <ul>
-    <li><strong>Réseau ADMIN :</strong> accès aux équipements réseau et serveurs</li>
-    <li><strong>Réseau PERSONNEL :</strong> communication entre les postes utilisateurs</li>
-    <li><strong>Réseau PRODUCTION :</strong> isolé pour les machines critiques</li>
-    <li><strong>Réseau VIDEO :</strong> priorisation du trafic multimédia (QoS)</li>
-    <li><strong>Réseaux WIFI :</strong> un sécurisé + un invité (accès web uniquement)</li>
+    <li><strong>ADMIN :</strong> gestion des équipements</li>
+    <li><strong>PERSONNEL :</strong> postes utilisateurs</li>
+    <li><strong>PRODUCTION :</strong> isolé</li>
+    <li><strong>VIDEO :</strong> trafic prioritaire</li>
+    <li><strong>WIFI :</strong> sécurisé + invité</li>
   </ul>
   <p>
-    La succursale est reliée au siège, et tout le trafic Internet est centralisé et filtré via le proxy du siège.
+    La succursale est reliée au siège, et tout le trafic Internet passe par le proxy centralisé.
   </p>
 </div>
 
 <div class="bloc">
   <h2>📄 Rapport technique</h2>
-  <!-- Remplace par ton Google Doc -->
-  <iframe
-    src="https://docs.google.com/document/d/18DaQVxHHnv0ggYayfrf-H5ZFy2GVfqAJaqdxyEzDXDc/edit?usp=sharing">
-  </iframe>
+  <iframe src="https://docs.google.com/document/d/18DaQVxHHnv0ggYayfrf-H5ZFy2GVfqAJaqdxyEzDXDc/edit?usp=sharing"></iframe>
 
-  <!-- Option lien -->
   <a href="https://docs.google.com/document/d/18DaQVxHHnv0ggYayfrf-H5ZFy2GVfqAJaqdxyEzDXDc/edit?usp=sharing" class="doc-link" target="_blank">
     🔗 Ouvrir le rapport complet
   </a>
 </div>
 
 <div class="bloc">
-  <h2>📝 Mon expérience personnelle</h2>
+  <h2>📝 Mon expérience</h2>
   <p>
-    Ce projet m’a permis de me rapprocher des conditions réelles d’un administrateur réseaux.
-    J’ai travaillé sur une infrastructure complète, de la conception jusqu’à la mise en production.
+    Ce projet m’a permis de travailler sur une infrastructure complète proche des conditions réelles.
   </p>
 
-  <p>J’ai particulièrement développé :</p>
   <ul>
-    <li>Ma capacité à concevoir une architecture réseau cohérente et sécurisée</li>
-    <li>Mes compétences en administration systèmes (Windows Server, Active Directory)</li>
-    <li>La configuration d’équipements réseau (switchs, routeurs, VLAN)</li>
-    <li>La mise en place de services réseau critiques</li>
+    <li>Architecture réseau</li>
+    <li>Administration systèmes</li>
+    <li>Configuration réseau (VLAN, routage)</li>
+    <li>Sécurité informatique</li>
   </ul>
 
-  <p>Les principales difficultés rencontrées :</p>
+  <p>Difficultés :</p>
   <ul>
-    <li>La gestion de la complexité d’un réseau multi-sites</li>
-    <li>La configuration des interconnexions entre siège et succursale</li>
-    <li>La sécurisation des flux et la segmentation réseau</li>
-    <li>La gestion du temps lors de la mise en production en conditions réelles</li>
+    <li>Complexité du multi-sites</li>
+    <li>Sécurisation des flux</li>
+    <li>Gestion du temps</li>
   </ul>
-
-  <p>
-    Cette SAE m’a permis de consolider mes compétences techniques et de travailler en équipe
-    sur un projet d’envergure, proche des attentes du monde professionnel.
-  </p>
 </div>
 
 <footer>
