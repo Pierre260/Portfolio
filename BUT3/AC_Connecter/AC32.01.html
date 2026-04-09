@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R5.03 — Ingénierie des systèmes télécoms</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+h1, h2 { text-align: center; }
+h1 { font-size: 2.6rem; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; margin-bottom: 20px; }
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+}
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  pointer-events: none; /* fix iframe scroll */
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+  margin-top: 15px;
+  overscroll-behavior: contain;
+}
+
+a.doc-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+a.doc-link:hover { text-decoration: underline; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+
+@media(max-width: 900px) {
+  h1 { font-size: 2.1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="../Connecter.html" class="back">Retour à la compétence Connecter</a>
+
+<h1>R5.03 — Ingénierie des systèmes télécoms</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectif du TP</h2>
+  <p>
+    Le TP vise à réaliser en pratique le <strong>beamforming</strong> à l’aide de la maquette
+    TMYTEK « 5G mmWave Developer Kit » et à comprendre l’implication de cette technique dans
+    le développement des réseaux 5G.
+  </p>
+  <p>
+    Le travail se décompose en deux parties :
+    <ul>
+      <li>Une phase d’analyse théorique sur les concepts de diversité, MIMO et réseaux d’antennes</li>
+      <li>Une phase de manipulations pratiques sur la maquette pour orienter le faisceau et observer les performances</li>
+    </ul>
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛠 Travail réalisé</h2>
+  <ul>
+    <li>Étude des phénomènes de propagation radio et des trajets multiples</li>
+    <li>Analyse des techniques de diversité (espace, polarisation, angle, fréquence, temps)</li>
+    <li>Introduction aux systèmes MIMO (SIMO, MISO, MIMO) et au multiplexage spatial</li>
+    <li>Observation des diagrammes de rayonnement pour une ou plusieurs antennes</li>
+    <li>Manipulation de la maquette 5G pour mesurer l’atténuation et les interférences</li>
+    <li>Réglage des phases pour orienter le faisceau (beamforming) et validation expérimentale</li>
+    <li>Analyse des performances et optimisation du signal</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📄 Rapport technique</h2>
+  <!-- IFRAME GOOGLE DOCS ou PDF -->
+  <iframe
+    src="https://docs.google.com/document/d/1b8mIlbAEZ3Gn14Rjvuyz1bngLhYYD43PzeWvaAGF_FQ/preview">
+  </iframe>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon expérience personnelle</h2>
+  <p>
+    Ce TP m’a permis de comprendre concrètement comment la 5G améliore les performances
+    grâce à la direction intelligente du signal. J’ai appris à :
+  </p>
+  <ul>
+    <li>Analyser la propagation des ondes et les interférences</li>
+    <li>Comprendre et appliquer les principes du MIMO et du beamforming</li>
+    <li>Manipuler des équipements 5G réels et mesurer les performances</li>
+    <li>Observer et interpréter les résultats expérimentaux</li>
+    <li>Documenter les manipulations et préparer un rapport technique</li>
+  </ul>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
