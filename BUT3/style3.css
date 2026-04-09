@@ -39,7 +39,7 @@ a.back {
   font-size: 1rem;
 }
 a.back::before { content: "← "; }
-a.back::after{ content: " →"; }
+a.forward::after{ content: " →"; }
 a.back:hover { text-decoration: underline; }
 
 /* ===== Titres ===== */
