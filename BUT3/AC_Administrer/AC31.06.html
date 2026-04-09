@@ -54,14 +54,21 @@ a.back::before { content: "← "; }
 a.back:hover { text-decoration: underline; }
 
 .bloc {
-  background: rgba(10,16,34,0.75);
+  background: rgba(10,16,34,0.75); /* fond semi-transparent */
   border-radius: 18px;
   padding: 25px;
   max-width: 1000px;
   margin: 0 auto 40px auto;
   backdrop-filter: blur(14px);
   position: relative;
+  box-shadow: 0 10px 35px rgba(0,245,212,0.25); /* glow sous le bloc */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* pour effet flottant */
 }
+.bloc:hover {
+  transform: translateY(-8px); /* effet flottant au survol */
+  box-shadow: 0 20px 50px rgba(0,245,212,0.45);
+}
+
 .bloc::before {
   content: "";
   position: absolute;
@@ -77,7 +84,6 @@ a.back:hover { text-decoration: underline; }
   opacity: .4;
   pointer-events: none;
 }
-
 ul { padding-left: 20px; }
 li { margin-bottom: 8px; }
 
