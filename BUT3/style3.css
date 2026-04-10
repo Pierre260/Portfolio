@@ -55,9 +55,6 @@ a.forward {
 
 a.forward::after{ content: " →"; }
 a.forward:hover { text-decoration: underline; }
-a.forward {
-  color: red !important;
-}
 
 /* ===== Titres ===== */
 h1 {
