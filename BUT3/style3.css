@@ -41,7 +41,6 @@ a.back {
 a.back::before { content: "← "; }
 a.back:hover { text-decoration: underline; }
 
-
 a.forward {
   color: var(--accent);
   text-decoration: none;
@@ -52,7 +51,6 @@ a.forward {
   margin-bottom: 30px;
   font-size: 1rem;
 }
-
 a.forward::after{ content: " →"; }
 a.forward:hover { text-decoration: underline; }
 
