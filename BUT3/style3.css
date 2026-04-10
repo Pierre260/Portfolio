@@ -53,7 +53,7 @@ a.forward {
 }
 
 a.forward::after{ content: " →"; }
-a.foward:hover { text-decoration: underline; }
+a.forward:hover { text-decoration: underline; }
 
 /* ===== Titres ===== */
 h1 {
