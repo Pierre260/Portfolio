@@ -39,8 +39,21 @@ a.back {
   font-size: 1rem;
 }
 a.back::before { content: "← "; }
-a.forward::after{ content: " →"; }
 a.back:hover { text-decoration: underline; }
+
+a.foward {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+a.forward::after{ content: " →"; }
+a.foward:hover { text-decoration: underline; }
 
 /* ===== Titres ===== */
 h1 {
