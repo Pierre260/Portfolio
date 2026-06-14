@@ -7,69 +7,58 @@
   <link rel="stylesheet" href="accueil.css">
 </head>
 <body>
-
 <canvas id="canvas-bg"></canvas>
-
 <div class="page-content">
   <a href="CV.html" class="cv-btn">CV</a>
   <a href="Contact.html" class="cnt-btn">Contact</a>
-
   <h1>Portfolio — BUT Réseaux &amp; Télécommunications</h1>
   <p style="max-width:600px;margin-top:15px;">
-    Bonjour à tous, je me présente, je m'appelle Pierre Poiré, j'ai 21 ans et je suis actuellement en 3 ème années à l'IUT de Béthune en tant qu'élève du BUT Réseaux &amp; Télécommunications parcours Cybersécurité. Vous trouverez ici mes projets et travaux pratiques effectué durant mes 3 ans d'études en Réseaux &amp Télécommunications
+    Bonjour à tous, je me présente, je m'appelle Pierre Poiré, j'ai 21 ans et je suis actuellement en 3 ème années à l'IUT de Béthune en tant qu'élève du BUT Réseaux &amp; Télécommunications parcours Cybersécurité. Vous trouverez ici mes projets et travaux pratiques effectué durant mes 3 ans d'études en Réseaux &amp; Télécommunications
   </p>
-
   <div class="grid">
     <a href="Administrer.html" class="card">
-      <div class="dot">A</div>
+      <div class="dot">&#x1F5A5;&#xFE0F;</div>
       <strong>Administrer</strong>
       <small>Concevoir et gérer un réseau</small>
     </a>
     <a href="Connecter.html" class="card">
-      <div class="dot">C</div>
+      <div class="dot">&#x1F517;</div>
       <strong>Connecter</strong>
       <small>Solutions de communication IP</small>
     </a>
     <a href="Programmer.html" class="card">
-      <div class="dot">P</div>
+      <div class="dot">&#x1F4BB;</div>
       <strong>Programmer</strong>
-      <small>Applications R&T</small>
+      <small>Applications R&amp;T</small>
     </a>
   </div>
-
   <div class="bottom-row">
     <a href="Sécuriser.html" class="card">
-      <div class="dot">S</div>
+      <div class="dot">&#x1F512;</div>
       <strong>Sécuriser</strong>
       <small>Systèmes sécurisés</small>
     </a>
     <a href="Surveiller.html" class="card">
-      <div class="dot">Surv</div>
+      <div class="dot">&#x1F441;&#xFE0F;</div>
       <strong>Surveiller</strong>
       <small>Incidents de sécurité</small>
     </a>
   </div>
-
   <footer>© 2026 — Pierre Poiré — BUT Réseaux &amp; Télécommunications</footer>
 </div>
-
 <script>
 (function () {
   const canvas = document.getElementById('canvas-bg');
   const ctx = canvas.getContext('2d');
   let W, H, nodes;
-
   const COLORS = ['rgba(0,245,212,', 'rgba(76,201,240,', 'rgba(114,9,183,'];
   const NODE_COUNT = 50;
-
   function rand(a, b) { return Math.random() * (b - a) + a; }
-
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
     init();
   }
-
   function init() {
     nodes = Array.from({ length: NODE_COUNT }, () => ({
       x: rand(0, W), y: rand(0, H),
@@ -79,11 +68,8 @@
       op: rand(0.25, 0.7)
     }));
   }
-
   function draw() {
     ctx.clearRect(0, 0, W, H);
-
-    /* lignes entre nœuds proches */
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const a = nodes[i], b = nodes[j];
@@ -100,30 +86,23 @@
         }
       }
     }
-
-    /* points */
     nodes.forEach(n => {
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
       ctx.fillStyle = n.col + n.op + ')';
       ctx.fill();
-
-      /* déplacement */
       n.x += n.vx; n.y += n.vy;
       if (n.x < -20) n.x = W + 20;
       if (n.x > W + 20) n.x = -20;
       if (n.y < -20) n.y = H + 20;
       if (n.y > H + 20) n.y = -20;
     });
-
     requestAnimationFrame(draw);
   }
-
   window.addEventListener('resize', resize);
   resize();
   draw();
 })();
 </script>
-
 </body>
 </html>
