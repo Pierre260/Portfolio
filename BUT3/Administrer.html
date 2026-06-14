@@ -1,60 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Administrer — Compétence BUT R&T</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrer — Compétence BUT R&T</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
+<canvas id="canvas-bg"></canvas>
 <div class="wrap">
-
   <a href="Portfolio.html" class="back">Retour à l'accueil</a>
-
   <h1>Administrer</h1>
   <p class="desc">Concevoir et gérer une infrastructure réseau fiable et sécurisée.</p>
-
   <img src="AC semestre5.png" alt="AC à valider" class="main-image">
-
   <section>
     <h2>Ressources réalisées</h2>
-
     <div class="sae-container">
       <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.01.html'">
         <strong>AC31.01 — Concevoir un réseau informatique d'une entreprise, ...</strong>
         <p>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</p>
       </div>
-
       <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.02.html'">
         <strong>AC31.02 — Réaliser la documentation technique de ce projet</strong>
         <p>R3.cyber.16 : Découvrir le Pentesting</p>
       </div>
-
       <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.03.html'">
         <strong>AC31.03 — Réaliser une maquette de démonstration du projet</strong>
         <p>SAE 4.cyber.01 - Sécuriser un système d'informatique</p>
       </div>
-
       <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.04.html'">
         <strong>AC31.04 — Défendre/Argumenter un projet</strong>
         <p>R5.06 - Expression-Culture-Communication professionnelles : S'intégrer dans une organisation</p>
       </div>
-
       <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.05.html'">
         <strong>AC31.05 — Communiquer avec les acteurs du projet</strong>
         <p>R5.07 - Projet Personnel et Professionnel</p>
       </div>
-
       <div class="sae-card" onclick="window.location.href='AC_Administrer/AC31.06.html'">
         <strong>AC31.06 — Gérer le projet et les différentes étapes de sa mise en oeuvre en respectant les règles</strong>
         <p>SAE 3.02 - Développer des applications communicantes</p>
       </div>
     </div>
   </section>
-
   <footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
-
 </div>
+<script>
+(function () {
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes;
+  const COLORS = ['rgba(0,245,212,', 'rgba(76,201,240,', 'rgba(114,9,183,'];
+  const NODE_COUNT = 50;
+  function rand(a, b) { return Math.random() * (b - a) + a; }
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    init();
+  }
+  function init() {
+    nodes = Array.from({ length: NODE_COUNT }, () => ({
+      x: rand(0, W), y: rand(0, H),
+      vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
+      r: rand(1.5, 3.5),
+      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      op: rand(0.25, 0.7)
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 150) {
+          const alpha = (1 - d / 150) * 0.18;
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(0,245,212,' + alpha + ')';
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.col + n.op + ')';
+      ctx.fill();
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
 </body>
 </html>
