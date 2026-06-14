@@ -233,23 +233,30 @@ footer {
   <h2>🔐 Compétences et manipulations réalisées</h2>
 
   <ul>
-    <li>Découverte de l'interface Stormshield SNS</li>
-    <li>Configuration des politiques de sécurité</li>
-    <li>Mise en place de règles de filtrage réseau</li>
-    <li>Analyse et contrôle des flux réseau</li>
-    <li>Segmentation d'une infrastructure réseau</li>
-    <li>Création et administration de VPN IPsec</li>
-    <li>Application des bonnes pratiques de cybersécurité</li>
+    <li>Prise en main et administration d'un firewall Stormshield SNS</li>
+    <li>Configuration des interfaces réseau et du routage statique</li>
+    <li>Création d'objets réseau, machines et services personnalisés</li>
+    <li>Mise en œuvre de règles NAT (masquerading et redirection de ports)</li>
+    <li>Déploiement d'un serveur web et publication via une règle NAT</li>
+    <li>Configuration de politiques de filtrage réseau</li>
+    <li>Analyse des flux réseau et capture de trafic avec tcpdump</li>
+    <li>Gestion des journaux (logs) et des alarmes de sécurité</li>
+    <li>Configuration d'un VPN IPsec site à site avec authentification PSK</li>
+    <li>Vérification du chiffrement et de l'encapsulation des flux VPN</li>
+    <li>Mise en place d'une authentification LDAP interne</li>
+    <li>Configuration d'un portail captif</li>
+    <li>Découverte d'une infrastructure PKI et utilisation de certificats</li>
+    <li>Authentification VPN par certificat numérique</li>
   </ul>
 
   <p>
     Une partie importante de la formation était consacrée à la mise en place
     de tunnels VPN IPsec afin de sécuriser les communications entre plusieurs
     réseaux distants. Nous avons également étudié les mécanismes de contrôle
-    des accès et de filtrage permettant de limiter l'exposition des systèmes.
+    des accès, le filtrage des flux et l'authentification par certificats
+    afin de renforcer la sécurité des infrastructures.
   </p>
 </div>
-
 <div class="bloc">
   <span class="badge">Stormshield • Firewall • VPN IPsec</span>
 
@@ -277,27 +284,47 @@ footer {
 
   <p>
     Cette ressource m'a permis de découvrir une solution de sécurité très
-    présente dans les infrastructures professionnelles françaises.
+    utilisée dans les infrastructures professionnelles. La formation
+    Stormshield m'a donné l'occasion de manipuler un firewall de nouvelle
+    génération et de comprendre son rôle dans la protection des systèmes
+    d'information.
   </p>
 
   <p>
-    J'ai appris à configurer un pare-feu de nouvelle génération, à créer des
-    politiques de filtrage adaptées aux besoins d'une organisation et à
-    mettre en place des VPN IPsec pour sécuriser les communications entre
-    différents sites.
+    J'ai appris à configurer des interfaces réseau, mettre en place des
+    règles de filtrage, réaliser des traductions d'adresses (NAT),
+    publier un service web, analyser des flux réseau et superviser
+    les événements de sécurité à travers les journaux et les alarmes
+    du firewall.
   </p>
 
   <p>
-    Les différentes manipulations réalisées sur Stormshield m'ont également
-    permis de mieux comprendre les enjeux liés à la protection périmétrique,
-    à la segmentation réseau et au contrôle des accès dans une architecture
-    sécurisée.
+    J'ai également découvert les mécanismes d'authentification LDAP,
+    les portails captifs ainsi que les infrastructures PKI utilisées
+    pour la gestion des certificats numériques.
   </p>
 
   <p>
-    Cette expérience a renforcé mes compétences en administration réseau et
-    en cybersécurité, notamment dans le domaine de la sécurisation des
-    infrastructures et des systèmes d'information.
+    La principale difficulté rencontrée concernait la mise en place du
+    VPN IPsec site à site. La configuration nécessitait une parfaite
+    cohérence entre les deux firewalls concernant les réseaux protégés,
+    les clés de pré-partage (PSK), les profils de chiffrement et les
+    paramètres des différentes phases de négociation IPsec.
+  </p>
+
+  <p>
+    Plusieurs essais ont été nécessaires avant d'obtenir un tunnel
+    fonctionnel. L'analyse des journaux système et l'utilisation
+    d'outils comme tcpdump ont été essentielles pour identifier les
+    erreurs de configuration et vérifier que les flux étaient bien
+    chiffrés lors de leur transit sur le réseau.
+  </p>
+
+  <p>
+    Cette expérience a renforcé mes compétences en cybersécurité et en
+    administration réseau, notamment dans la conception d'architectures
+    sécurisées et le déploiement de solutions de protection utilisées
+    dans les environnements professionnels.
   </p>
 </div>
 
