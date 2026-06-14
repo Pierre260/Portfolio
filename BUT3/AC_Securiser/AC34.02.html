@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R5.Cyber.11 - Supervision de la sécurité</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#071427;
+  --bg2:#0b1020;
+
+  --neon:#38bdf8;
+  --neon2:#22d3ee;
+  --purple:#0ea5e9;
+
+  --text:#eaeef6;
+  --muted:#9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,.14), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(34,211,238,.12), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-bottom: 20px;
+}
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+a.back::before {
+  content: "← ";
+}
+
+a.back:hover {
+  text-decoration: underline;
+}
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+
+.bloc:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(56,189,248,.25);
+}
+
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    120deg,
+    var(--neon),
+    var(--purple),
+    var(--neon2)
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: .45;
+  pointer-events: none;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--neon),
+    var(--neon2)
+  );
+  color: #031014;
+  font-weight: 700;
+  font-size: .8rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: .05em;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+
+@media(max-width: 900px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bloc {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="../Securiser.html" class="back">Retour à la compétence Sécuriser</a>
+
+<h1>R5.Cyber.11 - Supervision de la sécurité</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectifs</h2>
+
+  <p>
+    Cette ressource avait pour objectif de nous former aux mécanismes
+    de supervision et d'automatisation de la sécurité d'un système
+    d'information. Elle était directement liée à la SAE 5.Cyber.03
+    « Assurer la sécurisation et la supervision avancées d'un système
+    d'information ».
+  </p>
+
+  <p>
+    Nous avons découvert comment les centres opérationnels de sécurité
+    (SOC) utilisent des outils de supervision afin de détecter rapidement
+    des événements suspects et automatiser certaines actions de réponse.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🔗 Lien avec la SAE 5.Cyber.03</h2>
+
+  <p>
+    Cette ressource constituait la partie pratique de la SAE. Les notions
+    étudiées en cours ont ensuite été appliquées lors de la mise en place
+    de scénarios de détection et de réponse aux incidents sur la plateforme
+    SentinelOne.
+  </p>
+
+  <p>
+    Elle nous a permis de comprendre comment les entreprises mettent en
+    place des mécanismes de supervision avancés afin de protéger leurs
+    infrastructures contre les cyberattaques.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛠️ Mission réalisée sur SentinelOne</h2>
+
+  <p>
+    Le principal travail réalisé durant cette ressource consistait à créer
+    un playbook de sécurité sur SentinelOne.
+  </p>
+
+  <p>
+    L'objectif était d'automatiser la réaction du système lorsqu'un
+    comportement considéré comme dangereux était détecté.
+  </p>
+
+  <ul>
+    <li>Création de règles de détection d'événements suspects</li>
+    <li>Analyse des alertes générées par SentinelOne</li>
+    <li>Configuration d'un playbook automatisé</li>
+    <li>Mise en œuvre d'actions de réponse aux incidents</li>
+    <li>Tests et validation du scénario de sécurité</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <span class="badge">SentinelOne • Playbook • SOC</span>
+
+  <h2>⚙️ Exemple de scénario automatisé</h2>
+
+  <p>
+    Nous avons conçu un scénario dans lequel plusieurs tentatives
+    d'authentification échouées pouvaient être interprétées comme
+    une tentative d'intrusion ou une attaque par force brute.
+  </p>
+
+  <p>
+    Par exemple, lorsqu'un seuil de plusieurs mots de passe incorrects
+    était atteint, le playbook pouvait automatiquement déclencher des
+    actions de protection définies à l'avance afin de limiter les risques
+    pour le système d'information.
+  </p>
+
+  <p>
+    Ce travail nous a permis de comprendre le principe de l'orchestration
+    de la sécurité et l'importance de l'automatisation dans la réponse
+    aux incidents.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+
+  <p>
+    Cette ressource m'a permis de découvrir un aspect très concret du
+    métier d'analyste SOC : la mise en place de mécanismes capables
+    de réagir automatiquement à des événements de sécurité.
+  </p>
+
+  <p>
+    J'ai appris à construire une logique de détection, à définir des
+    conditions de déclenchement et à configurer des actions de réponse
+    dans SentinelOne.
+  </p>
+
+  <p>
+    Cette expérience m'a montré l'importance de l'automatisation dans
+    la cybersécurité moderne afin de réduire le temps de réaction face
+    à une menace potentielle et d'améliorer la protection des systèmes
+    d'information.
+  </p>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
