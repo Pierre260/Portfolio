@@ -1,56 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Compétences — BUT Réseaux & Télécommunications</title>
-
   <link rel="stylesheet" href="accueil.css">
 </head>
-
 <body>
 
-<a href="CV.html" class="cv-btn">CV</a>
-<a href="Contact.html" class="cnt-btn">Contact</a> 
+<canvas id="canvas-bg"></canvas>
 
-<h1>Compétences — BUT Réseaux & Télécommunications</h1>
-<p style="max-width:600px;margin-top:15px;">
-  Bienvenu sur mon portfolio ! Vous trouverez ci-joint des projets ainsi que des Travaux Pratiques effectués lors de mes 3 années à l'IUT de Béthune en tant qu'élève du BUT Réseaux & Télécommunications parcours Cybersécurité.
-</p>
+<div class="page-content">
+  <a href="CV.html" class="cv-btn">CV</a>
+  <a href="Contact.html" class="cnt-btn">Contact</a>
 
-<div class="grid">
-  <a href="Administrer.html" class="card">
-    <div class="dot">A</div>
-    <strong>Administrer</strong>
-    <small>Concevoir et gérer un réseau</small>
-  </a>
+  <h1>Compétences — BUT Réseaux &amp; Télécommunications</h1>
+  <p style="max-width:600px;margin-top:15px;">
+    Bienvenu sur mon portfolio ! Vous trouverez ci-joint des projets ainsi que des Travaux Pratiques effectués lors de mes 3 années à l'IUT de Béthune en tant qu'élève du BUT Réseaux &amp; Télécommunications parcours Cybersécurité.
+  </p>
 
-  <a href="Connecter.html" class="card">
-    <div class="dot">C</div>
-    <strong>Connecter</strong>
-    <small>Solutions de communication IP</small>
-  </a>
+  <div class="grid">
+    <a href="Administrer.html" class="card">
+      <div class="dot">A</div>
+      <strong>Administrer</strong>
+      <small>Concevoir et gérer un réseau</small>
+    </a>
+    <a href="Connecter.html" class="card">
+      <div class="dot">C</div>
+      <strong>Connecter</strong>
+      <small>Solutions de communication IP</small>
+    </a>
+    <a href="Programmer.html" class="card">
+      <div class="dot">P</div>
+      <strong>Programmer</strong>
+      <small>Applications R&T</small>
+    </a>
+  </div>
 
-  <a href="Programmer.html" class="card">
-    <div class="dot">P</div>
-    <strong>Programmer</strong>
-    <small>Applications R&T</small>
-  </a>
+  <div class="bottom-row">
+    <a href="Sécuriser.html" class="card">
+      <div class="dot">S</div>
+      <strong>Sécuriser</strong>
+      <small>Systèmes sécurisés</small>
+    </a>
+    <a href="Surveiller.html" class="card">
+      <div class="dot">Surv</div>
+      <strong>Surveiller</strong>
+      <small>Incidents de sécurité</small>
+    </a>
+  </div>
+
+  <footer>© 2026 — Pierre Poiré — BUT Réseaux &amp; Télécommunications</footer>
 </div>
 
-<div class="bottom-row">
-  <a href="Sécuriser.html" class="card">
-    <div class="dot">S</div>
-    <strong>Sécuriser</strong>
-    <small>Systèmes sécurisés</small>
-  </a>
+<script>
+(function () {
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes;
 
-  <a href="Surveiller.html" class="card">
-    <div class="dot">Surv</div>
-    <strong>Surveiller</strong>
-    <small>Incidents de sécurité</small>
-  </a>
-</div>
+  const COLORS = ['rgba(0,245,212,', 'rgba(76,201,240,', 'rgba(114,9,183,'];
+  const NODE_COUNT = 50;
 
-<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+  function rand(a, b) { return Math.random() * (b - a) + a; }
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    init();
+  }
+
+  function init() {
+    nodes = Array.from({ length: NODE_COUNT }, () => ({
+      x: rand(0, W), y: rand(0, H),
+      vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
+      r: rand(1.5, 3.5),
+      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      op: rand(0.25, 0.7)
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    /* lignes entre nœuds proches */
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 150) {
+          const alpha = (1 - d / 150) * 0.18;
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(0,245,212,${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    /* points */
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.col + n.op + ')';
+      ctx.fill();
+
+      /* déplacement */
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
 
 </body>
 </html>
