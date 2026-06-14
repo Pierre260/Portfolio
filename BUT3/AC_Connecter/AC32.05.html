@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAE 5.01 - Concevoir, réaliser et présenter une solution technique</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#05080f;
+  --bg2:#0a1022;
+  --neon:#00f5d4;
+  --neon2:#4cc9f0;
+  --purple:#7209b7;
+  --text:#eaeef6;
+  --muted:#8b93a7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+}
+
+h1, h2 { text-align: center; }
+h1 { font-size: 2.6rem; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; margin-bottom: 20px; }
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+  box-shadow: 0 10px 35px rgba(0,245,212,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bloc:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,245,212,0.45);
+}
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  pointer-events: none;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+  margin-top: 15px;
+  overscroll-behavior: contain;
+}
+
+a.doc-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+a.doc-link:hover { text-decoration: underline; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+
+@media(max-width: 900px) {
+  h1 { font-size: 2.1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="../Connecter.html" class="back">Retour à la compétence Connecter</a>
+
+<h1>SAE — Solutions de communication IP</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectifs</h2>
+  <p>
+   Installer et configurer un hyperviseur sur un serveur dédié,
+   concevoir des machines virtuelles modèles pour les travaux pratiques,
+   déployer un accès distant sécurisé via une interface web,
+   et mettre en place des mécanismes de sécurité et de supervision.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛠 Technologies utilisées</h2>
+  <ul>
+    <li>Protocoles de communication IP</li>
+    <li>Configuration d'équipements réseau</li>
+    <li>Rédaction technique en anglais</li>
+    <li>Travail collaboratif en mode projet</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <span class="badge">AC32.05 — Collaborer en mode projet en français et en anglais</span>
+  <h2>📄 Compte-rendu (English)</h2>
+  <p>
+    Dans le cadre de cette SAE, nous avons également travaillé notre anglais technique en rédigeant
+    un compte-rendu complet en anglais. Cet exercice nous a permis de développer notre capacité
+    à communiquer dans un contexte professionnel international, à utiliser le vocabulaire
+    technique réseau en anglais, et à collaborer efficacement au sein d'un groupe.
+  </p>
+
+  <iframe
+    src="https://docs.google.com/document/d/13ns2sB9ncrJngCf_waXS4MVxFqj8ZNOmFIo2hwSpnwk/preview">
+  </iframe>
+
+  <a class="doc-link"
+     href="https://docs.google.com/document/d/13ns2sB9ncrJngCf_waXS4MVxFqj8ZNOmFIo2hwSpnwk/edit?usp=sharing"
+     target="_blank">
+     🔗 Ouvrir le compte-rendu dans Google Docs
+  </a>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon expérience personnelle</h2>
+  <p>
+    Ce projet m'a permis de renforcer à la fois mes compétences techniques en réseau et
+    ma maîtrise de l'anglais dans un contexte professionnel. J'ai particulièrement appris à :
+  </p>
+  <ul>
+    <li>Rédiger des documents techniques en anglais de manière claire et structurée</li>
+    <li>Utiliser le vocabulaire spécifique aux réseaux et télécommunications en anglais</li>
+    <li>Collaborer en équipe en alternant entre le français et l'anglais selon les besoins</li>
+    <li>Présenter et justifier des choix techniques dans une langue étrangère</li>
+  </ul>
+  <p>
+    Parmi les principales difficultés rencontrées :
+  </p>
+  <ul>
+    <li>Trouver le bon niveau de langage technique en anglais sans perdre en précision</li>
+    <li>Coordonner la rédaction à plusieurs tout en gardant une cohérence stylistique</li>
+    <li>Gérer le temps entre la partie technique du projet et la rédaction en anglais</li>
+  </ul>
+  <p>
+    Cette expérience m'a montré l'importance de maîtriser l'anglais technique dans le domaine
+    des réseaux et de la cybersécurité.
+  </p>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
