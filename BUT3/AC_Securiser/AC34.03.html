@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R5.Cyber.09 - Architectures sécurisées</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#071427;
+  --bg2:#0b1020;
+
+  --neon:#38bdf8;
+  --neon2:#22d3ee;
+  --purple:#0ea5e9;
+
+  --text:#eaeef6;
+  --muted:#9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,.14), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(34,211,238,.12), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-bottom: 20px;
+}
+
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+a.back::before {
+  content: "← ";
+}
+
+a.back:hover {
+  text-decoration: underline;
+}
+
+.bloc {
+  background: rgba(10,16,34,0.75);
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+
+.bloc:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(56,189,248,.25);
+}
+
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    120deg,
+    var(--neon),
+    var(--purple),
+    var(--neon2)
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: .45;
+  pointer-events: none;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+p {
+  color: var(--text);
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--neon),
+    var(--neon2)
+  );
+  color: #031014;
+  font-weight: 700;
+  font-size: .8rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: .05em;
+}
+
+iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  border-radius: 14px;
+  margin-top: 15px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+}
+
+a.doc-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.doc-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+
+@media(max-width: 900px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bloc {
+    padding: 20px;
+  }
+
+  iframe {
+    height: 500px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="../Sécuriser.html" class="back">Retour à la compétence Sécuriser</a>
+
+<h1>R5.Cyber.09 - Architectures sécurisées</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectifs</h2>
+
+  <p>
+    Cette ressource avait pour objectif de comprendre comment concevoir et
+    déployer des architectures réseau sécurisées dans un contexte
+    professionnel. Elle s'inscrit dans l'AC34.03 « Sécuriser les systèmes
+    d'exploitation » et nous a permis de découvrir les mécanismes de
+    protection mis en œuvre au niveau du réseau.
+  </p>
+
+  <p>
+    À travers l'utilisation d'équipements professionnels, nous avons appris
+    à contrôler les flux, segmenter les réseaux et mettre en place des
+    communications sécurisées entre différents sites.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛡️ Formation Stormshield</h2>
+
+  <p>
+    Dans le cadre de cette ressource, nous avons suivi une formation dédiée
+    aux pare-feux Stormshield Network Security (SNS), une solution largement
+    utilisée dans les entreprises et les administrations pour protéger les
+    infrastructures réseau.
+  </p>
+
+  <p>
+    Cette formation nous a permis de découvrir les fonctionnalités avancées
+    des firewalls Stormshield ainsi que les bonnes pratiques de sécurisation
+    d'une architecture réseau professionnelle.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🔐 Compétences et manipulations réalisées</h2>
+
+  <ul>
+    <li>Découverte de l'interface Stormshield SNS</li>
+    <li>Configuration des politiques de sécurité</li>
+    <li>Mise en place de règles de filtrage réseau</li>
+    <li>Analyse et contrôle des flux réseau</li>
+    <li>Segmentation d'une infrastructure réseau</li>
+    <li>Création et administration de VPN IPsec</li>
+    <li>Application des bonnes pratiques de cybersécurité</li>
+  </ul>
+
+  <p>
+    Une partie importante de la formation était consacrée à la mise en place
+    de tunnels VPN IPsec afin de sécuriser les communications entre plusieurs
+    réseaux distants. Nous avons également étudié les mécanismes de contrôle
+    des accès et de filtrage permettant de limiter l'exposition des systèmes.
+  </p>
+</div>
+
+<div class="bloc">
+  <span class="badge">Stormshield • Firewall • VPN IPsec</span>
+
+  <h2>📄 Compte-rendu de formation</h2>
+
+  <p>
+    Le document suivant présente les différentes manipulations réalisées
+    durant la formation Stormshield ainsi que les notions abordées autour
+    de la sécurisation des architectures réseau.
+  </p>
+
+  <iframe
+    src="https://docs.google.com/document/d/195k3QYuP0JZ9fXaJqJaad1CrFl0ukpskF1V_yHIr2Fc/preview">
+  </iframe>
+
+  <a class="doc-link"
+     href="https://docs.google.com/document/d/195k3QYuP0JZ9fXaJqJaad1CrFl0ukpskF1V_yHIr2Fc/edit?usp=sharing"
+     target="_blank">
+     🔗 Ouvrir le document dans Google Docs
+  </a>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+
+  <p>
+    Cette ressource m'a permis de découvrir une solution de sécurité très
+    présente dans les infrastructures professionnelles françaises.
+  </p>
+
+  <p>
+    J'ai appris à configurer un pare-feu de nouvelle génération, à créer des
+    politiques de filtrage adaptées aux besoins d'une organisation et à
+    mettre en place des VPN IPsec pour sécuriser les communications entre
+    différents sites.
+  </p>
+
+  <p>
+    Les différentes manipulations réalisées sur Stormshield m'ont également
+    permis de mieux comprendre les enjeux liés à la protection périmétrique,
+    à la segmentation réseau et au contrôle des accès dans une architecture
+    sécurisée.
+  </p>
+
+  <p>
+    Cette expérience a renforcé mes compétences en administration réseau et
+    en cybersécurité, notamment dans le domaine de la sécurisation des
+    infrastructures et des systèmes d'information.
+  </p>
+</div>
+
+<footer>
+© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
+</footer>
+
+</body>
+</html>
