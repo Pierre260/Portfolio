@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC35.03Cyber — Réagir face à un incident de sécurité</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root {
+  --bg1:#071427; --bg2:#0b1020;
+  --neon:#38bdf8; --neon2:#22d3ee; --purple:#0ea5e9;
+  --text:#eaeef6; --muted:#9ca3af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,.14), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(34,211,238,.12), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px; line-height: 1.7; min-height: 100vh;
+}
+h1, h2 { text-align: center; }
+h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 20px; }
+a.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--neon); font-weight: 600; text-decoration: none; margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+.bloc {
+  background: rgba(10,16,34,0.75); border-radius: 18px; padding: 25px;
+  max-width: 1000px; margin: 0 auto 40px auto; backdrop-filter: blur(14px);
+  position: relative; transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+.bloc:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(56,189,248,.25); }
+.bloc::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: .45; pointer-events: none;
+}
+p { color: var(--text); }
+.related-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 15px; padding: 10px 18px; border-radius: 999px;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014; font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.3s ease;
+}
+.related-link:hover { filter: brightness(1.15); transform: translateY(-2px); }
+.related-link::after { content: " →"; }
+footer { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 60px; }
+@media(max-width: 900px) { body { padding: 20px; } h1 { font-size: 2rem; } .bloc { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<a href="../Surveiller.html" class="back">Retour à la compétence Surveiller</a>
+
+<h1>AC35.03Cyber — Réponse à incident</h1>
+
+<div class="bloc">
+  <h2>🔗 Ressource associée</h2>
+  <p>
+    Cette compétence est directement affiliée à la SAE 6.Cyber.01 — Réagir face à une cyber-attaque,
+    traitée dans l'AC35.04Cyber. Les travaux réalisés dans ce cadre y sont détaillés.
+  </p>
+  <a href="AC35.04.html" class="related-link">Voir AC35.04Cyber — Réagir face à une cyber-attaque</a>
+</div>
+
+<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</body>
+</html>
