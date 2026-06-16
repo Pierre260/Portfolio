@@ -1,101 +1,263 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sécuriser — Compétence BUT R&T</title>
-  <link rel="stylesheet" href="style2.css">
-</head>
-<body>
-<canvas id="canvas-bg"></canvas>
-<div class="wrap">
-  <a href="Portfolio.html" class="back">Retour à l'accueil</a>
-  <h1>Sécuriser</h1>
-  <p class="desc">
-    Déployer et maintenir des solutions de connexion et de communication
-    sur des infrastructures IP.
-  </p>
-  <img src="AC SAE503.png" alt="AC à valider" class="main-image">
-  <section>
-    <h2>Ressources réalisées</h2>
-    <div class="sae-container">
-      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.01.html'">
-        <strong>AC34.01Cyber - Participer activement à une analyse de risque, ... .</strong>
-        <p>SAE 5.Cyber.03 - Assurer la sécurisation et la supervision avancées d'un système d'information</p>
-      </div>
-      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.02.html'">
-        <strong>AC34.02Cyber - Mettre en oeuvre des outils avancés de sécurisation,... .</strong>
-        <p>R5.Cyber.11 - Supervision de la sécurité</p>
-      </div>
-      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.03.html'">
-        <strong>AC34.03Cyber - Sécuriser les systèmes d'exploitation.</strong>
-        <p>R5.Cyber.09 - Architectures sécurisées</p>
-      </div>
-      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.04.html'">
-        <strong>AC34.04Cyber - Proposer une architecture sécurisée de système d'information, ... .</strong>
-        <p>SAE PORTFOLIO - Portfolio</p>
-      </div>
-    </div>
-  </section>
-  <footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
-</div>
-<script>
-(function () {
-  const canvas = document.getElementById('canvas-bg');
-  const ctx = canvas.getContext('2d');
-  let W, H, nodes;
-  const COLORS = ['rgba(123,95,255,', 'rgba(56,189,248,', 'rgba(59,37,255,'];
-  const NODE_COUNT = 50;
-  function rand(a, b) { return Math.random() * (b - a) + a; }
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    init();
-  }
-  function init() {
-    nodes = Array.from({ length: NODE_COUNT }, () => ({
-      x: rand(0, W), y: rand(0, H),
-      vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
-      r: rand(1.5, 3.5),
-      col: COLORS[Math.floor(Math.random() * COLORS.length)],
-      op: rand(0.25, 0.7)
-    }));
-  }
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const a = nodes[i], b = nodes[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 150) {
-          const alpha = (1 - d / 150) * 0.18;
-          ctx.beginPath();
-          ctx.strokeStyle = 'rgba(123,95,255,' + alpha + ')';
-          ctx.lineWidth = 0.7;
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-    nodes.forEach(n => {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = n.col + n.op + ')';
-      ctx.fill();
-      n.x += n.vx; n.y += n.vy;
-      if (n.x < -20) n.x = W + 20;
-      if (n.x > W + 20) n.x = -20;
-      if (n.y < -20) n.y = H + 20;
-      if (n.y > H + 20) n.y = -20;
-    });
-    requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
-})();
-</script>
-</body>
-</html>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg1:#0a0f25;
+  --bg2:#1b0f3b;
+  --accent:#7b5fff;
+  --accent2:#38bdf8;
+  --text:#e6eef6;
+  --muted:#a0a8c0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(59,37,255,0.1), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(56,189,248,0.1), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: clamp(16px, 3vw, 34px);
+  text-align: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== Canvas fond animé ===== */
+#canvas-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ===== Retour ===== */
+a.back {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+
+a.forward {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+a.forward::after{ content: " →"; }
+a.forward:hover { text-decoration: underline; }
+
+/* ===== Titres ===== */
+h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  margin: 10px 0 15px;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 3px;
+  margin: 10px auto 0;
+}
+
+p {
+  max-width: 700px;
+  color: var(--muted);
+  margin-bottom: 25px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ===== Image ===== */
+.main-image {
+  display: block;
+  width: min(920px, 100%);
+  height: auto;
+  border-radius: 12px;
+  margin: 26px auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+/* ===== Grille ===== */
+.sae-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin: 22px 0 40px;
+  text-align: left;
+}
+
+.sae-card {
+  position: relative;
+  background: rgba(27,15,59,0.75);
+  padding: 22px;
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 140px;
+}
+.sae-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--accent), #3b25ff, var(--accent2));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .5;
+}
+.sae-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(59,37,255,0.4);
+}
+.sae-card strong {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.sae-card p {
+  color: var(--muted);
+  margin: 0;
+  font-size: clamp(0.95rem, 1.2vw, 1.02rem);
+}
+
+h2 {
+  margin-top: 24px;
+  margin-bottom: 18px;
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+}
+
+/* ===== Formulaire ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  background: rgba(27,15,59,0.8);
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(59,37,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(59,37,255,0.6);
+}
+.contact-form label { font-weight: 600; color: var(--text); }
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(10,16,34,.7);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+.contact-form button {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #042029;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.contact-form button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 30px;
+  font-size: .9rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 20px;
+}
+
+/* ===== CV ===== */
+.cv-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+.cv-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+  overflow: hidden;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+.cv-image { width: 100%; display: block; }
+.cv-buttons {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.btn {
+  text-decoration: none;
+  background: #1e293b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn:hover { background: #334155; transform: scale(1.05); }
+.download { background: #2563eb; }
+.download:hover { background: #1d4ed8; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; }
+  .contact-form { max-width: 100%; padding: 20px; }
+}
