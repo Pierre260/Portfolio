@@ -20,6 +20,9 @@ body {
     radial-gradient(circle at 70% 70%, rgba(56,189,248,0.1), transparent 45%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
   padding: clamp(16px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   min-height: 100vh;
   overflow-x: hidden;
@@ -37,6 +40,11 @@ body {
   z-index: 1;
   width: 100%;
   max-width: 1100px;
+  padding-top: 20px;
+}
+
+body {
+  justify-content: flex-start;
 }
 
 /* ===== Retour ===== */
