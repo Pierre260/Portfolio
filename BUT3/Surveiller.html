@@ -4,60 +4,98 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Surveiller — Compétence BUT R&T</title>
-
   <link rel="stylesheet" href="style2.css">
 </head>
-
 <body>
-  <div class="wrap">
-
-    <a href="Portfolio.html" class="back">Retour à l'accueil</a>
-
-    <h1>Surveiller</h1>
-    <p class="desc">
-      Superviser, analyser et réagir face aux incidents et aux anomalies
-      affectant les systèmes et réseaux.
-    </p>
-
-     <img src="AC SAE5.cyber.03.png" alt="AC à valider" class="main-image">
-    
-    <section>
-      <h2>Ressources réalisées</h2>
-
-      <!-- ✅ Grille comme Administrer -->
-      <div class="sae-container">
-
-        <!-- Carte 1 -->
-        <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.01.html'">
-          <strong>AC35.01Cyber - Surveiller l'activité du sytème d'information.</strong>
-          <p>R5.Cyber.09 - Architecture sécurisées</p>
-        </div>
-
-        <!-- Carte 2 -->
-        <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.02.html'">
-          <strong>AC35.02Cyber - Appliquer une méthodologie de test de pénétration.</strong>
-          <p>R3.Cyber.11 - Méthodologie du pentesting</p>
-        </div>
-
-        <!-- Carte 3 -->
-        <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.03.html'">
-          <strong>AC35.03Cyber - Réagir face à un incident de sécurité.</strong>
-          <p>R6.Cyber.04 - Réponse à incident</p>
-        </div>
-
-        <!-- Carte 4 -->
-        <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.04.html'">
-          <strong>AC35.04Cyber - Administrer les outils de surveillance du système d'information.</strong>
-          <p>SAE 6.Cyber.01 - Réagir face à une cyber-attaque</p>
-        </div>
-
+<canvas id="canvas-bg"></canvas>
+<div class="wrap">
+  <a href="Portfolio.html" class="back">Retour à l'accueil</a>
+  <h1>Surveiller</h1>
+  <p class="desc">
+    Superviser, analyser et réagir face aux incidents et aux anomalies
+    affectant les systèmes et réseaux.
+  </p>
+  <img src="AC SAE5.cyber.03.png" alt="AC à valider" class="main-image">
+  <section>
+    <h2>Ressources réalisées</h2>
+    <div class="sae-container">
+      <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.01.html'">
+        <strong>AC35.01Cyber - Surveiller l'activité du système d'information.</strong>
+        <p>R5.Cyber.09 - Architecture sécurisées</p>
       </div>
-    </section>
-
-    <footer>
-      © 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
-    </footer>
-
-  </div>
+      <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.02.html'">
+        <strong>AC35.02Cyber - Appliquer une méthodologie de test de pénétration.</strong>
+        <p>R3.Cyber.11 - Méthodologie du pentesting</p>
+      </div>
+      <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.03.html'">
+        <strong>AC35.03Cyber - Réagir face à un incident de sécurité.</strong>
+        <p>R6.Cyber.04 - Réponse à incident</p>
+      </div>
+      <div class="sae-card" onclick="window.location.href='AC_Surveiller/AC35.04.html'">
+        <strong>AC35.04Cyber - Administrer les outils de surveillance du système d'information.</strong>
+        <p>SAE 6.Cyber.01 - Réagir face à une cyber-attaque</p>
+      </div>
+    </div>
+  </section>
+  <footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</div>
+<script>
+(function () {
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes;
+  const COLORS = ['rgba(123,95,255,', 'rgba(56,189,248,', 'rgba(59,37,255,'];
+  const NODE_COUNT = 50;
+  function rand(a, b) { return Math.random() * (b - a) + a; }
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    init();
+  }
+  function init() {
+    nodes = Array.from({ length: NODE_COUNT }, () => ({
+      x: rand(0, W), y: rand(0, H),
+      vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
+      r: rand(1.5, 3.5),
+      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      op: rand(0.25, 0.7)
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 150) {
+          const alpha = (1 - d / 150) * 0.18;
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(123,95,255,' + alpha + ')';
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.col + n.op + ')';
+      ctx.fill();
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
 </body>
 </html>
