@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC35.02Cyber — Appliquer une méthodologie de test de pénétration</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root {
+  --bg1:#071427; --bg2:#0b1020;
+  --neon:#38bdf8; --neon2:#22d3ee; --purple:#0ea5e9;
+  --text:#eaeef6; --muted:#9ca3af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,.14), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(34,211,238,.12), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px; line-height: 1.7; min-height: 100vh;
+}
+h1, h2 { text-align: center; }
+h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 20px; }
+a.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--neon); font-weight: 600; text-decoration: none; margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+.bloc {
+  background: rgba(10,16,34,0.75); border-radius: 18px; padding: 25px;
+  max-width: 1000px; margin: 0 auto 40px auto; backdrop-filter: blur(14px);
+  position: relative; transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+.bloc:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(56,189,248,.25); }
+.bloc::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: .45; pointer-events: none;
+}
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--muted); }
+p { color: var(--text); }
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014; font-weight: 700; font-size: .8rem;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; letter-spacing: .05em;
+}
+footer { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 60px; }
+@media(max-width: 900px) { body { padding: 20px; } h1 { font-size: 2rem; } .bloc { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<a href="../Surveiller.html" class="back">Retour à la compétence Surveiller</a>
+
+<h1>SAE3.cyber.04 — Découvrir le pentesting</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectifs</h2>
+  <p>
+    Cette ressource est affiliée à R3.cyber.16 — Méthodologie du Pentesting.
+    Elle avait pour objectif de nous initier aux méthodologies de test de pénétration
+    en nous entraînant à identifier et exploiter des vulnérabilités dans un environnement
+    contrôlé, via la plateforme OWASP Juice Shop.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🧪 OWASP Juice Shop</h2>
+  <p>
+    OWASP Juice Shop est une application web volontairement vulnérable, conçue pour
+    s'entraîner au pentesting dans un cadre légal et pédagogique. Elle regroupe
+    de nombreuses failles classiques répertoriées dans l'OWASP Top 10.
+  </p>
+  <ul>
+    <li>Injection SQL</li>
+    <li>Cross-Site Scripting (XSS)</li>
+    <li>Broken Authentication</li>
+    <li>Exposition de données sensibles</li>
+    <li>Mauvaise configuration de sécurité</li>
+    <li>Contournement de contrôles d'accès</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>🛠️ Technologies et outils utilisés</h2>
+  <ul>
+    <li>OWASP Juice Shop (environnement d'entraînement)</li>
+    <li>Burp Suite (interception de requêtes HTTP)</li>
+    <li>Navigateur web (DevTools)</li>
+    <li>Documentation OWASP Top 10</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <span class="badge">Pentesting • OWASP • Vulnérabilités Web</span>
+  <h2>🔍 Compétences développées</h2>
+  <ul>
+    <li>Comprendre et appliquer une méthodologie de test de pénétration</li>
+    <li>Identifier des vulnérabilités dans une application web</li>
+    <li>Exploiter des failles de type injection, XSS, contournement d'authentification</li>
+    <li>Utiliser des outils professionnels de pentest</li>
+    <li>Lire et exploiter de la documentation technique en anglais</li>
+    <li>Approfondir ses recherches pour résoudre des challenges complexes</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+  <p>
+    Les principales difficultés rencontrées ont été la barrière de la langue,
+    la majorité des ressources et de l'interface étant en anglais, ainsi que
+    la nécessité d'avoir les bonnes réflexions pour approcher chaque challenge
+    et d'approfondir suffisamment nos recherches pour trouver les failles.
+  </p>
+  <p>
+    Cette ressource m'a appris à structurer ma démarche d'analyse, à persévérer
+    face aux obstacles et à mieux comprendre comment les attaquants raisonnent
+    pour exploiter des vulnérabilités web.
+  </p>
+</div>
+
+<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</body>
+</html>
