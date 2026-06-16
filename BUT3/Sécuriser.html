@@ -4,61 +4,98 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sécuriser — Compétence BUT R&T</title>
-
   <link rel="stylesheet" href="style2.css">
 </head>
-
 <body>
-  <div class="wrap">
-
-    <a href="Portfolio.html" class="back">Retour à l'accueil</a>
-
-    <h1>Sécuriser</h1>
-    <p class="desc">
-      Déployer et maintenir des solutions de connexion et de communication
-      sur des infrastructures IP.
-    </p>
-
-    <img src="AC SAE503.png" alt="AC à valider" class="main-image">
-
-    <section>
-      <h2>Ressources réalisées</h2>
-
-      <!-- ✅ 4 cards comme Administrer -->
-      <div class="sae-container">
-
-        <!-- 1) SAE 501 -->
-        <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.01.html'">
-          <strong>AC34.01Cyber - Participer activement à une analyse de risque, ... .</strong>
-          <p>SAE 5.Cyber.03 - Assurer la sécurisation et la supervision avancées d'un système d'information</p>
-        </div>
-
-        <!-- 2) AC SAE 501 -->
-        <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.02.html'">
-          <strong>AC34.02Cyber - Mettre en oeuvre des outils avancés de sécurisation,... .</strong>
-          <p>R5.Cyber.11 - Supervision de la sécurité</p>
-        </div>
-
-        <!-- 3) SAE Portfolio -->
-        <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.03.html'"> 
-          <strong>AC34.03Cyber - Sécuriser les systèmes d'exploitation.</strong>
-          <p>R5.Cyber.09 - Architectures sécurisées</p>
-        </div>
-
-        <!-- 4) AC Portfolio -->
-        <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.04.html'">
-          <strong>AC34.04Cyber - Proposer une architecture sécurisée de système d'information, ... .</strong>
-          <p>SAE PORTFOLIO - Portfolio</p>
-        </div>
-
+<canvas id="canvas-bg"></canvas>
+<div class="wrap">
+  <a href="Portfolio.html" class="back">Retour à l'accueil</a>
+  <h1>Sécuriser</h1>
+  <p class="desc">
+    Déployer et maintenir des solutions de connexion et de communication
+    sur des infrastructures IP.
+  </p>
+  <img src="AC SAE503.png" alt="AC à valider" class="main-image">
+  <section>
+    <h2>Ressources réalisées</h2>
+    <div class="sae-container">
+      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.01.html'">
+        <strong>AC34.01Cyber - Participer activement à une analyse de risque, ... .</strong>
+        <p>SAE 5.Cyber.03 - Assurer la sécurisation et la supervision avancées d'un système d'information</p>
       </div>
-    </section>
-
-
-    <footer>
-      © 2026 — Pierre Poiré — BUT Réseaux & Télécommunications
-    </footer>
-
-  </div>
+      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.02.html'">
+        <strong>AC34.02Cyber - Mettre en oeuvre des outils avancés de sécurisation,... .</strong>
+        <p>R5.Cyber.11 - Supervision de la sécurité</p>
+      </div>
+      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.03.html'">
+        <strong>AC34.03Cyber - Sécuriser les systèmes d'exploitation.</strong>
+        <p>R5.Cyber.09 - Architectures sécurisées</p>
+      </div>
+      <div class="sae-card" onclick="window.location.href='AC_Securiser/AC34.04.html'">
+        <strong>AC34.04Cyber - Proposer une architecture sécurisée de système d'information, ... .</strong>
+        <p>SAE PORTFOLIO - Portfolio</p>
+      </div>
+    </div>
+  </section>
+  <footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</div>
+<script>
+(function () {
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes;
+  const COLORS = ['rgba(123,95,255,', 'rgba(56,189,248,', 'rgba(59,37,255,'];
+  const NODE_COUNT = 50;
+  function rand(a, b) { return Math.random() * (b - a) + a; }
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    init();
+  }
+  function init() {
+    nodes = Array.from({ length: NODE_COUNT }, () => ({
+      x: rand(0, W), y: rand(0, H),
+      vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
+      r: rand(1.5, 3.5),
+      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      op: rand(0.25, 0.7)
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 150) {
+          const alpha = (1 - d / 150) * 0.18;
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(123,95,255,' + alpha + ')';
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.col + n.op + ')';
+      ctx.fill();
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
 </body>
 </html>
