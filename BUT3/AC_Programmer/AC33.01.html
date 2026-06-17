@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC33.01 — Élaborer les spécifications techniques</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root {
+  --bg1:#05080f; --bg2:#0a1022;
+  --neon:#00f5d4; --neon2:#4cc9f0; --purple:#7209b7;
+  --text:#eaeef6; --muted:#8b93a7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px; line-height: 1.7;
+}
+h1, h2 { text-align: center; }
+h1 { font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 20px; }
+a.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--neon); font-weight: 600; text-decoration: none; margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+.bloc {
+  background: rgba(10,16,34,0.75); border-radius: 18px; padding: 25px;
+  max-width: 1000px; margin: 0 auto 40px auto; backdrop-filter: blur(14px);
+  position: relative; transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,245,212,0.25);
+}
+.bloc:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,245,212,0.45); }
+.bloc::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: .4; pointer-events: none;
+}
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--muted); }
+p { color: var(--text); }
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014; font-weight: 700; font-size: .8rem;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; letter-spacing: .05em;
+}
+footer { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 60px; }
+@media(max-width: 900px) { body { padding: 20px; } h1 { font-size: 2rem; } .bloc { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<a href="../Programmer.html" class="back">Retour à la compétence Programmer</a>
+
+<h1>R5.08 — Gestion de projet 3 : Mener un projet professionel</h1>
+
+<div class="bloc">
+  <h2>🎯 Contexte du projet</h2>
+  <p>
+    Dans le cadre de la ressource R5.08 — Gestion de projet : mener un projet professionnel,
+    nous avons été placés dans la peau d'une entreprise chargée de construire un camion.
+    Chaque groupe jouait un rôle précis (HSSP, chef de projet, commercial, etc.) et devait
+    gérer l'ensemble du projet de A à Z, des spécifications techniques jusqu'à la livraison finale.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🚛 Travaux réalisés</h2>
+  <p>Le projet nous a amenés à :</p>
+  <ul>
+    <li>Calculer le coût de chaque pièce nécessaire à la construction du camion</li>
+    <li>Estimer et respecter les délais de livraison</li>
+    <li>Négocier avec les clients pour comprendre leurs besoins et trouver le meilleur compromis</li>
+    <li>Maximiser la rentabilité tout en satisfaisant les exigences du client</li>
+    <li>Savoir vendre et argumenter son produit de manière convaincante</li>
+    <li>Gérer son temps et ses priorités comme dans une vraie structure professionnelle</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <span class="badge">Gestion de projet • Négociation • Spécifications techniques</span>
+  <h2>🔍 Compétences développées</h2>
+  <ul>
+    <li>Élaborer des spécifications techniques détaillées</li>
+    <li>Planifier et respecter un planning de projet</li>
+    <li>Adopter une posture professionnelle (HSSP, chef de projet, commercial)</li>
+    <li>Négocier avec un client et défendre ses choix</li>
+    <li>Calculer des coûts et optimiser la rentabilité</li>
+    <li>Travailler en équipe avec des rôles définis</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+  <p>
+    La principale difficulté était de se mettre réellement dans la peau d'un professionnel
+    expérimenté — anticiper les imprévus, gérer les priorités et trouver le bon équilibre
+    entre les attentes du client et la rentabilité de l'entreprise.
+  </p>
+  <p>
+    C'était néanmoins une expérience très formatrice qui m'a appris à raisonner
+    de manière structurée, à négocier et à défendre un projet dans un contexte
+    professionnel réaliste.
+  </p>
+</div>
+
+<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</body>
+</html>
