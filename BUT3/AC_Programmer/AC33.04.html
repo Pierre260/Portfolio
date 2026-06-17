@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC33.04 — Déployer et maintenir une solution informatique</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root {
+  --bg1:#05080f; --bg2:#0a1022;
+  --neon:#00f5d4; --neon2:#4cc9f0; --purple:#7209b7;
+  --text:#eaeef6; --muted:#8b93a7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px; line-height: 1.7;
+}
+h1, h2 { text-align: center; }
+h1 { font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 20px; }
+a.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--neon); font-weight: 600; text-decoration: none; margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+.bloc {
+  background: rgba(10,16,34,0.75); border-radius: 18px; padding: 25px;
+  max-width: 1000px; margin: 0 auto 40px auto; backdrop-filter: blur(14px);
+  position: relative; transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,245,212,0.25);
+}
+.bloc:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,245,212,0.45); }
+.bloc::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: .4; pointer-events: none;
+}
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--muted); }
+p { color: var(--text); }
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014; font-weight: 700; font-size: .8rem;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; letter-spacing: .05em;
+}
+/* Deux iframes côte à côte */
+.docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 15px;
+}
+.docs-grid iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+.docs-grid .doc-link {
+  display: block;
+  margin-top: 8px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.docs-grid .doc-link:hover { text-decoration: underline; }
+@media(max-width: 700px) {
+  .docs-grid { grid-template-columns: 1fr; }
+}
+footer { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 60px; }
+@media(max-width: 900px) { body { padding: 20px; } h1 { font-size: 2rem; } .bloc { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<a href="../Programmer.html" class="back">Retour à la compétence Programmer</a>
+
+<h1>R5.02 - Piloter un projet informatique.</h1>
+
+<div class="bloc">
+  <h2>🎯 Objectifs</h2>
+  <p>
+    Dans le cadre de la ressource R5.02 — Piloter un projet informatique, nous avons découvert
+    et pris en main des outils de supervision réseau professionnels, notamment Zabbix et Nagios,
+    afin de déployer et maintenir une solution de monitoring d'infrastructure informatique.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🛠️ Technologies utilisées</h2>
+  <ul>
+    <li>Zabbix (supervision réseau et systèmes)</li>
+    <li>Nagios (monitoring d'infrastructure)</li>
+    <li>Configuration d'agents et de sondes de supervision</li>
+    <li>Mise en place d'alertes et de tableaux de bord</li>
+    <li>Administration de serveurs Linux</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <span class="badge">Zabbix • Nagios • Supervision réseau</span>
+  <h2>🔍 Compétences développées</h2>
+  <ul>
+    <li>Déployer une solution de supervision d'infrastructure</li>
+    <li>Configurer et administrer Zabbix et Nagios</li>
+    <li>Monitorer des équipements réseau et des serveurs</li>
+    <li>Mettre en place des alertes et des seuils de détection</li>
+    <li>Maintenir et faire évoluer une solution informatique en production</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📄 Comptes-rendus</h2>
+  <div class="docs-grid">
+    <div>
+      <iframe src="https://docs.google.com/document/d/1bJAXkjkAzeSs4yf3qctkbFZu73FGzsxJ4Z5ysjGeJXU/preview"></iframe>
+      <a class="doc-link" href="https://docs.google.com/document/d/1bJAXkjkAzeSs4yf3qctkbFZu73FGzsxJ4Z5ysjGeJXU/edit?usp=sharing" target="_blank">🔗 Ouvrir le compte-rendu 1</a>
+    </div>
+    <div>
+      <iframe src="https://docs.google.com/document/d/1NPJKJKLLpvUgo1v0CDRdNJB67hJHbTnI5zpWkCMcVXM/preview"></iframe>
+      <a class="doc-link" href="https://docs.google.com/document/d/1NPJKJKLLpvUgo1v0CDRdNJB67hJHbTnI5zpWkCMcVXM/edit?usp=sharing" target="_blank">🔗 Ouvrir le compte-rendu 2</a>
+    </div>
+  </div>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+  <p>
+    La principale difficulté a été la découverte de nouveaux outils — Zabbix et Nagios —
+    dont la configuration initiale demande du temps et de la rigueur pour bien comprendre
+    leur fonctionnement.
+  </p>
+  <p>
+    Le point très positif est que j'utilise aujourd'hui Zabbix directement en entreprise,
+    ce qui prouve la valeur concrète de cette ressource. La prise en main en formation
+    m'a permis d'être opérationnel bien plus rapidement en stage.
+  </p>
+</div>
+
+<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</body>
+</html>
