@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC33.06 — Sécuriser l'environnement numérique d'une application</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root {
+  --bg1:#05080f; --bg2:#0a1022;
+  --neon:#00f5d4; --neon2:#4cc9f0; --purple:#7209b7;
+  --text:#eaeef6; --muted:#8b93a7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,212,.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(76,201,240,.15), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px; line-height: 1.7;
+}
+h1, h2 { text-align: center; }
+h1 { font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 20px; }
+a.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--neon); font-weight: 600; text-decoration: none; margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+.bloc {
+  background: rgba(10,16,34,0.75); border-radius: 18px; padding: 25px;
+  max-width: 1000px; margin: 0 auto 40px auto; backdrop-filter: blur(14px);
+  position: relative; transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,245,212,0.25);
+}
+.bloc:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,245,212,0.45);
+}
+.bloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .4;
+  pointer-events: none;
+}
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--muted); }
+p { color: var(--text); }
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014;
+  font-weight: 700;
+  font-size: .8rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: .05em;
+}
+.screen-img {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto 0;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+a.doc-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--neon);
+  font-weight: 600;
+  text-decoration: none;
+}
+a.doc-link:hover {
+  text-decoration: underline;
+}
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 60px;
+}
+@media(max-width: 900px) {
+  body { padding: 20px; }
+  h1 { font-size: 2rem; }
+  .bloc { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<a href="../Cyber.html" class="back">Retour à la compétence Cyber</a>
+
+<h1>SAE.CyberStage — Stage</h1>
+
+<div class="bloc">
+  <h2>🎯 Contexte du stage</h2>
+  <p>
+    Dans le cadre de ma troisième année de BUT Réseaux & Télécommunications,
+    j'ai effectué un stage de 14 semaines au sein du SIVOM en tant que
+    technicien vidéo protection.
+  </p>
+  <p>
+    Cette expérience m'a permis de participer à la supervision et à la
+    sécurisation de l'environnement numérique du service de vidéo protection,
+    en veillant au bon fonctionnement des équipements et des infrastructures.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>📊 Présentation du stage</h2>
+
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+   padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+   margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+   border-radius: 8px; will-change: transform;">
+
+    <iframe loading="lazy"
+      style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+      border: none; padding: 0; margin: 0;"
+      src="https://www.canva.com/design/DAHMoBpd3QE/ixufijOEPaN1TiN9AGcAVw/view?embed"
+      allowfullscreen="allowfullscreen"
+      allow="fullscreen">
+    </iframe>
+
+  </div>
+
+  <a class="doc-link"
+     href="https://www.canva.com/design/DAHMoBpd3QE/ixufijOEPaN1TiN9AGcAVw/view"
+     target="_blank"
+     rel="noopener">
+     🔗 Ouvrir la présentation du stage
+  </a>
+
+</div>
+
+<div class="bloc">
+  <h2>🛡️ Outils utilisés pour la supervision et la sécurité</h2>
+
+  <p>
+    Durant mon stage, plusieurs outils professionnels ont été utilisés afin
+    d'assurer la supervision, la détection d'incidents et le maintien en
+    condition de sécurité du système de vidéo protection.
+  </p>
+
+  <ul>
+    <li><strong>OpenVAS</strong> : analyse des vulnérabilités et détection des failles de sécurité.</li>
+    <li><strong>Zabbix</strong> : supervision des équipements, serveurs et services du système.</li>
+    <li><strong>Graylog</strong> : centralisation et analyse des journaux d'événements pour détecter les anomalies.</li>
+    <li><strong>Milestone XProtect</strong> : gestion et supervision du système de vidéo protection.</li>
+  </ul>
+
+</div>
+
+<div class="bloc">
+  <span class="badge">Cybersécurité • Supervision • Vidéo Protection</span>
+
+  <h2>🔍 Compétences développées</h2>
+
+  <ul>
+    <li>Sécuriser l'environnement numérique d'un système de vidéo protection.</li>
+    <li>Identifier et analyser des vulnérabilités de sécurité.</li>
+    <li>Mettre en place une supervision centralisée des équipements.</li>
+    <li>Exploiter et analyser les journaux d'événements.</li>
+    <li>Participer au maintien en condition opérationnelle et de sécurité.</li>
+    <li>Travailler dans un environnement professionnel réel.</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+
+  <p>
+    Je n'ai pas rencontré de difficultés majeures durant ce stage, car j'avais
+    déjà acquis une première expérience dans le domaine de la vidéo protection
+    lors de mon précédent stage chez Eiffage.
+  </p>
+
+  <p>
+    Cette expérience au SIVOM m'a permis d'approfondir mes connaissances en
+    cybersécurité appliquée aux infrastructures de vidéo protection et de
+    découvrir des outils professionnels de supervision et d'analyse utilisés
+    quotidiennement dans un centre de surveillance. C'est pour cela que je continuerai avec eux l'année prochaine en alternance afin d'effctuer ma poursuite d'étude en Mastère Administrateur Systèmes, Réseaux & Bases de Données
+  </p>
+
+  <p>
+    Ce stage a renforcé mes compétences techniques en administration,
+    supervision et sécurisation des systèmes informatiques, tout en me
+    confrontant à des problématiques réelles de terrain.
+  </p>
+</div>
+
+<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+
+</body>
+</html>
