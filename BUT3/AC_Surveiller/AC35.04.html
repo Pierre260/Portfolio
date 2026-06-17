@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC35.04Cyber — Administrer les outils de surveillance du système d'information</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root {
+  --bg1:#071427; --bg2:#0b1020;
+  --neon:#38bdf8; --neon2:#22d3ee; --purple:#0ea5e9;
+  --text:#eaeef6; --muted:#9ca3af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,.14), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(34,211,238,.12), transparent 45%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 30px; line-height: 1.7; min-height: 100vh;
+}
+h1, h2 { text-align: center; }
+h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 20px; }
+a.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--neon); font-weight: 600; text-decoration: none; margin-bottom: 30px;
+}
+a.back::before { content: "← "; }
+a.back:hover { text-decoration: underline; }
+.bloc {
+  background: rgba(10,16,34,0.75); border-radius: 18px; padding: 25px;
+  max-width: 1000px; margin: 0 auto 40px auto; backdrop-filter: blur(14px);
+  position: relative; transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+.bloc:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(56,189,248,.25); }
+.bloc::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+  background: linear-gradient(120deg, var(--neon), var(--purple), var(--neon2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: .45; pointer-events: none;
+}
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--muted); }
+p { color: var(--text); }
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  color: #031014; font-weight: 700; font-size: .8rem;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; letter-spacing: .05em;
+}
+footer { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 60px; }
+@media(max-width: 900px) { body { padding: 20px; } h1 { font-size: 2rem; } .bloc { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<a href="../Surveiller.html" class="back">Retour à la compétence Surveiller</a>
+
+<h1>AC35.04Cyber — Administrer les outils de surveillance du système d'information</h1>
+
+<div class="bloc">
+  <h2>🎯 Contexte du projet</h2>
+  <p>
+    Dans le cadre de la SAE 6.Cyber.01 — Réagir face à une cyber-attaque, nous avons été placés
+    dans la peau d'un responsable informatique recruté par une petite société en pleine expansion.
+    Composée de 8 personnes, elle prévoyait de passer rapidement à 80 employés dans un immeuble
+    de 6 étages. Tout le système d'information était à construire, avec la sécurité informatique
+    entièrement sous notre responsabilité.
+  </p>
+</div>
+
+<div class="bloc">
+  <h2>🏢 Travaux réalisés</h2>
+  <p>L'exercice consistait à présenter au PDG un projet complet incluant :</p>
+  <ul>
+    <li>La liste des équipements réseau et matériels à acquérir</li>
+    <li>La mise en place d'une messagerie professionnelle sécurisée</li>
+    <li>La sécurisation des données R&D sensibles</li>
+    <li>L'organisation du travail avec un assistant informaticien</li>
+    <li>Les procédures de sécurité à instaurer pour les employés</li>
+    <li>Un système d'alarme et de vidéosurveillance pour le bâtiment (bonus)</li>
+  </ul>
+  <p>
+    Ce travail a donné lieu à un dossier d'une dizaine de pages, suivi d'une présentation
+    orale de 10 minutes devant un comité de direction avec 5 minutes de questions.
+  </p>
+</div>
+
+<div class="bloc">
+  <span class="badge">SSI • Architecture SI • Présentation orale</span>
+  <h2>🔍 Compétences développées</h2>
+  <ul>
+    <li>Concevoir un système d'information sécurisé de A à Z</li>
+    <li>Appliquer les fondamentaux de la SSI dans un contexte réel</li>
+    <li>Rédiger un dossier technique professionnel</li>
+    <li>Présenter et défendre un projet devant un jury</li>
+    <li>Anticiper les risques et proposer des solutions adaptées</li>
+    <li>Gérer les priorités et organiser le travail en équipe</li>
+  </ul>
+</div>
+
+<div class="bloc">
+  <h2>🎞 Présentation du projet (Diaporama)</h2>
+  <p>Ce diaporama présente notre projet et les solutions proposées au PDG.</p>
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;
+    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+    border-radius: 8px; will-change: transform;">
+    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+      src="https://www.canva.com/design/DAHAb2Kh63s/9V9tzBBJzn8lGgL82NJHWA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+    </iframe>
+  </div>
+  <a href="https://www.canva.com/design/DAHAb2Kh63s/9V9tzBBJzn8lGgL82NJHWA/view?utm_content=DAHAb2Kh63s&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="color: var(--neon); font-weight: 600; text-decoration: none;">
+    🔗 Ouvrir le diaporama complet
+  </a>
+</div>
+
+<div class="bloc">
+  <h2>📝 Mon retour d'expérience</h2>
+  <p>
+    Les principales difficultés ont été le passage à l'oral et le fait de devoir raisonner
+    comme un employé expérimenté, en anticipant des problématiques que l'on n'a pas encore
+    vécues en entreprise.
+  </p>
+  <p>
+    C'était néanmoins un excellent entraînement pour notre soutenance de stage : se mettre
+    en situation de responsabilité, défendre ses choix face à des questions et convaincre
+    un interlocuteur sont des compétences directement réutilisables.
+  </p>
+</div>
+
+<footer>© 2026 — Pierre Poiré — BUT Réseaux & Télécommunications</footer>
+</body>
+</html>
